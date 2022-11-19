@@ -1,10 +1,9 @@
 .banner {
-  height: 85vh;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../app/assets/images/black_and_white.jpg");
+  height: 80vh;
+  width: 100%;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1668884243/helping-hands/black___white_eqdhxh.jpg");
 }
