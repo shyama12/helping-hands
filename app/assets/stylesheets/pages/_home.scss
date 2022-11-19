@@ -1,1 +1,10 @@
-// Specific CSS for your home-page
+.banner {
+  height: 85vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../app/assets/images/black_and_white.jpg");
+  background-position: center;
+}
