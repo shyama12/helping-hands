@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Start seeds"
-User.destroy_all
 Task.destroy_all
 Category.destroy_all
+User.destroy_all
 
 puts "Creating Users"
 
@@ -51,7 +51,7 @@ puts "Created #{Category.count} categories"
 
 puts "Creating tasks"
 
-10.times do
+30.times do
   task = Task.new(title: Faker::Lorem.paragraph(sentence_count: 1),
                   date_time: Faker::Time.between(from: DateTime.now + 10, to: DateTime.now, format: :long),
                   category_id: rand(1..Category.count),
