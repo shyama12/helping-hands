@@ -1,0 +1,11 @@
+<% if task.need_help? %>
+  <%# <div class="bg-success"> %>
+  <h5 class="text-success !important"><%=link_to task.title, task_path(task.id) %></h5>
+  <p class="text-success"> <%=task.description%></p>
+  <%# </div> %>
+<% else %>
+  <%# <div class="bg-warning"> %>
+  <h5 class="text-warning"><%=task.title %></h5>
+  <p class="text-warning"> <%=task.description%></p>
+  </div>
+<% end %>
