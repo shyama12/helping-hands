@@ -34,7 +34,7 @@
             <h5><strong><%= @task.user.first_name %> <%= @task.user.last_name %></strong></h5>
           </div>
           <div class="d-flex flex-row justify-self-end">
-            <div class="mx-3"><%= link_to "Apply for this task", "#", class: "btn-black-transparent-long-round" %></div>
+            <div class="mx-3"><%= link_to "Apply for this task", task_task_applications_path(@task), data: { turbo_method: :post}, class: "btn-black-transparent-long-round" %></div>
             <div class="mx-3"><%= link_to "Contact owner", "#", class: "btn-black-transparent-long-round" %></div>
           </div>
         </div>
