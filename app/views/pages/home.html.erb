@@ -7,10 +7,10 @@
 <div class="container">
   <% if @need_help_tasks.count > 8 %>
     <h2>Need help</h2>
-    <%= render "tasks_carousel", tasks: @need_help_tasks %>
+    <%= render "tasks_carousel", tasks: @need_help_tasks, carousel_controls: "carousel1" %>
   <% end %>
   <% if @volunteer_tasks.count > 8 %>
     <h2>Volunteers</h2>
-    <%= render "tasks_carousel", tasks: @volunteer_tasks %>
+    <%= render "tasks_carousel", tasks: @volunteer_tasks, carousel_controls: "carousel2" %>
   <% end %>
 </div>

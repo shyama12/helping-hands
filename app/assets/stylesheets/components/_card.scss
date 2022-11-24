@@ -6,9 +6,9 @@
   margin: 30px;
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  padding: 16px;
 }
 
 .orange-border {
@@ -19,37 +19,45 @@
   border: 4px solid green;
 }
 
-.card-trip .card-trip-user{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
 .card-trip p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  height: 70%;
-}
-
-.owner-info {
+.title-avatar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30%;
-  align-self: flex-end;
+  height: 20%;
+  padding: 3px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-avatar > img {
+  margin-left: 10px;
+  align-self: flex-start;
+}
+
+.title-avatar > h2 {
+  font-size: 16px;
+  font-weight: bold;
+  flex-grow: 1;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  height: 2.6rem;
+}
+
+.task-description {
+  height: 60%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.task-details {
+  height: 20%;
 }
 
 

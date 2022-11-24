@@ -1,15 +1,19 @@
-<div class="card-trip <%= task.need_help? ? 'orange-border' : 'green-border' %>">
-  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= task.title %></h2>
+<%= link_to task_path(task.id), style: "text-decoration: none; color: black;" do %>
+  <div class="card-trip <%= task.need_help? ? 'orange-border' : 'green-border' %>">
+    <div class="title-avatar">
+        <h2><%= task.title %></h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+    </div>
+    <div class="task-description">
       <br>
       <p><%= task.description %></p>
-    <br>
-    <br>
-    <p><strong>Task Category</strong>: <%= task.category.name %></p>
-    <p><strong>Time</strong>: <%= task.date_time.strftime('%Y %B %e - %l:%M %p') %></p>
-    <p><strong>Owner</strong>: <%= task.user.first_name %> <%= task.user.last_name %></p>
+      <br>
+      <br>
+    </div>
+    <div class="task-details">
+      <p><strong>Task Category</strong>: <%= task.category.name %></p>
+      <p><strong>Time</strong>: <%= task.date_time.strftime(' %B %e, %Y - %l:%M %p') %></p>
+      <p><strong>Owner</strong>: <%= task.user.first_name %> <%= task.user.last_name %></p>
     </div>
   </div>
-</div>
+<% end %>

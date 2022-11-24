@@ -1,6 +1,7 @@
 <div class="container">
-  <h1>Tasks</h1>
 
+  <%= "<h1>Tasks</h1>".html_safe if request.path == tasks_path %>
+  <%= "<h1>My Listings</h1>".html_safe if request.path == my_tasks_tasks_path %>
   <h4><%= pluralize @tasks.count, "task" %></h4>
   <div class="task-cards-wrapper">
     <% @tasks.each do |task| %>
