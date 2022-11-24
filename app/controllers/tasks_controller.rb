@@ -48,13 +48,13 @@ class TasksController < ApplicationController
 
   def my_tasks
     @tasks = Task.where(user: current_user)
-    render :index
+    render :my_tasks
   end
 
   def my_applications
     @tasks_applications = TaskApplication.where(user: current_user)
     @tasks = @task_application.map(&:task) unless @task_application.nil? || @task_application.size.zero?
-    render :index
+    render :my_applications
   end
 
   private
