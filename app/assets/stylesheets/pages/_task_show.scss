@@ -1,0 +1,51 @@
+.fa-solid.fa-pencil, .fa-solid.fa-trash-can {
+  transition: transform .2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.info-box {
+  border-left: 1px solid gray;
+  position: relative;
+  height: 100%;
+  padding-left: 30px;
+  padding-bottom: 100px;
+}
+
+.info-box::before{
+  position: absolute;
+  content: '';
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: white;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, 0);
+}
+
+.info-box p {
+  margin: 0;
+}
+
+.info-box .owner-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .owner-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+}
+
+.info-box:last-child {
+  padding-bottom: 0;
+}
