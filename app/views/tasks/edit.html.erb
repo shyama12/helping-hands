@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for @task, data: { controller: "flatpickr" } do |f| %>
+  <%= simple_form_for @task do |f| %>
     <h2>New Task</h2>
     <p>I want to...</p>
     <div class="radio-buttons-wrapper">
@@ -8,7 +8,7 @@
     <%= f.association :category, include_blank: false, include_hidden: false %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :date_time, as: :string, input_html: { data: { flatpickr_target: "dateTime" } }, label: "Date and time" %>
+    <%= f.input :date_time, label: "Date and time" %>
     <%= f.input :address %>
     <%= f.button :submit, class: "btn-black-transparent-long-round" %>
   <% end %>
