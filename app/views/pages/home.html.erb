@@ -2,7 +2,35 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
+<div class="container">
+  <div class="text-center">
+    <h2>How does it work?</h2>
+  </div>
+<br>
+  <div class="cards-how-to">
+    <%= image_tag "one.jpg" %>
+      <div class="card-how-to-info">
+        <h2>Choose if you want help or to volunteer</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
 
+    <%= image_tag "two.jpg" %>
+      <div class="card-how-to-info">
+        <h2>Search for helping hands in your area</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+
+    <%= image_tag "three.jpg" %>
+      <div class="card-how-to-info">
+        <h2>Connect with others and get the task done</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
 
 <div class="container">
   <% if @need_help_tasks.count > 8 %>
