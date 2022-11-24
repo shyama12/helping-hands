@@ -76,9 +76,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-<<<<<<< HEAD
+
 gem 'geocoder'
-=======
+
 
 gem "faker"
->>>>>>> master
