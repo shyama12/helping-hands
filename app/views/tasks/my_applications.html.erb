@@ -1,10 +1,15 @@
-<div class="container">
+<div class="container my-5">
   <%= "<h1>My Applications</h1>".html_safe if request.path == my_applications_tasks_path %>
-  <h4><%= pluralize @tasks.count, "task" %></h4>
-  <div class="task-cards-wrapper">
-    <% @tasks.each do |task| %>
-      <%= render "task", task: task %>
-    <% end %>
-    <br>
-  </div>
+  <br><br>
+  <% if @tasks.nil? %>
+    <h4>You do not have any applications!</h4>
+  <% else %>
+    <h4><%= pluralize @tasks.count, "task" %></h4>
+    <div class="task-cards-wrapper">
+      <% @tasks.each do |task| %>
+        <%= render "task", task: task %>
+      <% end %>
+      <br>
+    </div>
+  <% end %>
 </div>
