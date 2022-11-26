@@ -1,3 +1,6 @@
+
+
+
 <div class="banner">
   <div class="banner-item7"></div>
   <div class="banner-item1"></div>
@@ -7,18 +10,61 @@
   <div class="banner-item5"></div>
   <div class="banner-item6"></div>
   <div class="banner-item8"></div>
+  <div class="form">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="need-help" id="need-help" value="option1">
+      <label class="form-check-label" for="need-help">I need help</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="want-to-help" id="want-to-help" value="option2">
+      <label class="form-check-label" for="want-to-help">I want to help</label>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="container">
+  <h2 class='home-cards-title'>How does it work?</h2>
+  <div class="wrapper">
+    <div class="card-one">
+      <div class="card-product">
+        <%= image_tag "one.jpg" %>
+        <div class="card-product-infos">
+          <h2>Choose if you want help or to volunteer</h2>
+          <p>Enter your location and browse people in your area who <strong>require help</strong> or are available <strong>to help you.</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="card-two">
+      <div class="card-product">
+        <%= image_tag "two.jpg" %>
+        <div class="card-product-infos">
+          <h2>Search for helping hands in your area</h2>
+          <p>Browse people based on tasks and availability.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-three">
+      <div class="card-product">
+        <%= image_tag "three.jpg" %>
+        <div class="card-product-infos">
+          <h2>Connect with others and get the task done</h2>
+          <p>Login and create a profile to live chat with another person to sort out the finer details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
+<br>
+<br>
+<br>
 
 <div class="m-5">
   <% if @need_help_tasks.count > 8 %>
     <h2>Need help</h2>
-    <%= render "tasks_carousel", tasks: @need_help_tasks, carousel_controls: "carousel1" %>
-  <% end %>
-  <% if @volunteer_tasks.count > 8 %>
-    <h2>Volunteers</h2>
-    <%= render "tasks_carousel", tasks: @volunteer_tasks, carousel_controls: "carousel2" %>
+    <%= render "tasks_carousel", tasks: @tasks, carousel_controls: "carousel1" %>
   <% end %>
 </div>
