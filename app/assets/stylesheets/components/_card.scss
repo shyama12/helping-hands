@@ -1,8 +1,8 @@
 .card-trip {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 20rem;
-  height: 300px;
+  width: 18rem;
+  height: 250px;
   margin: 30px;
   display: flex;
   flex-direction: column;
@@ -30,19 +30,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 20%;
+  height: 30%;
   padding: 3px 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .title-avatar > img {
-  margin-left: 10px;
+  margin-left: 5px;
   align-self: flex-start;
 }
 
-.title-avatar > h2 {
-  font-size: 16px;
+.title-avatar h2 {
+  font-size: 1rem;
   font-weight: bold;
   flex-grow: 1;
   overflow: hidden;
@@ -51,20 +51,53 @@
 }
 
 .task-description {
-  height: 60%;
+  height: 70%;
   overflow: hidden;
   overflow-wrap: break-word;
 }
 
-.task-details {
-  height: 20%;
-}
-
 
 .task-cards-wrapper {
-  margin: 50px;
+  margin: 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+
+@media (max-width: 360px) {
+  .card-trip {
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 16rem;
+    height: 200px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+
+  .title-avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 60%;
+    padding: 3px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .title-avatar h2 {
+    margin: 0;
+  }
+
+  .task-description {
+    display: none;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
 }

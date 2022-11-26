@@ -12,7 +12,7 @@
 
 
 
-<div class="container">
+<div class="m-5">
   <% if @need_help_tasks.count > 8 %>
     <h2>Need help</h2>
     <%= render "tasks_carousel", tasks: @need_help_tasks, carousel_controls: "carousel1" %>

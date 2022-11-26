@@ -10,6 +10,7 @@
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     transition: filter 0.5s ease;
+    transform: translate(0, -60px);
   }
 
   .banner:hover {
