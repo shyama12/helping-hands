@@ -1,0 +1,8 @@
+<%= simple_form_for(@chatroom) do |f| %>
+  <h1>Chatroom Creation</h1>
+  <%= f.input :name,
+    label: false,
+    placeholder: "Create your chatroom name",
+    wrapper_html: {class: "flex-grow-1"}  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
