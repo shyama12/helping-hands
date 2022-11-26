@@ -62,7 +62,7 @@ addresses_array = ["29 Main St Swindon SN2 2DQ",
                    "2 Maer Lane, Bude, EX23 9EE, United Kingdom",
                    "4 Petherick Road, Bude, EX23 8SW, United Kingdom",
                    "11 Summerleaze Crescent, Bude, EX23 8HE, United Kingdom",
-                   "39 Park Crescent, Emsworth, PO10 7NT, United Kingdom"
+                   "39 Park Crescent, Emsworth, PO10 7NT, United Kingdom",
                    "6 Nore Crescent, Emsworth, PO10 7NA, United Kingdom"
                   ]
 30.times do |i|

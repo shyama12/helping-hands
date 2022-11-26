@@ -6,4 +6,7 @@ Rails.application.routes.draw do
       get :my_tasks
     end
   end
+  resources :chatrooms, only: [:new, :create, :show] do
+    resources :messages, only: :create
+  end
 end
