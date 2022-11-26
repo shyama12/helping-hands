@@ -47,6 +47,10 @@ social_interactions.save
 
 babysitting = Category.new(name: "Babysitting")
 babysitting.save
+
+running_errands = Category.new(name: "Running Errands")
+
+
 puts "Created #{Category.count} categories"
 
 puts "Creating tasks"
