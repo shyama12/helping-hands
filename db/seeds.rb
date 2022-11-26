@@ -71,7 +71,7 @@ addresses_array = ["29 Main St Swindon SN2 2DQ",
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
                   user_id: rand(1..User.count),
                   need_help: [true, false].sample,
-                  address: addresses_array[i])
+                  address: addresses_array.sample)
   task.save
   puts "Created task with id #{task.id}"
 end
