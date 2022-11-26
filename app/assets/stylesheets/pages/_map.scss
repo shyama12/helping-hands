@@ -1,0 +1,41 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(10px, 3fr);
+
+}
+
+#map {
+  width: 60%;
+  height: 700px;
+  flex-shrink: 2;
+}
+
+.card {
+  width: 18rem; height: 2rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 3rem;
+  left: -1rem
+}
+
+/* styling map pop up */
+.mapboxgl-popup {
+  max-width: 100px;
+  border-radius: 4px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 300;
+}

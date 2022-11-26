@@ -1,3 +1,4 @@
+
 <br>
 <div class="container">
   <h2 class='home-cards-title'>How does it work?</h2>
@@ -32,6 +33,19 @@
   </div>
 </div>
 
+<div class="banner">
+  <div class="banner-item7"></div>
+  <div class="banner-item1"></div>
+  <div class="banner-item2"></div>
+  <div class="banner-item3"></div>
+  <div class="banner-item4"></div>
+  <div class="banner-item5"></div>
+  <div class="banner-item6"></div>
+  <div class="banner-item8"></div>
+</div>
+
+
+
 
 <br>
 <br>
@@ -40,10 +54,10 @@
 <div class="container">
   <% if @need_help_tasks.count > 8 %>
     <h2>Need help</h2>
-    <%= render "tasks_carousel", tasks: @need_help_tasks %>
+    <%= render "tasks_carousel", tasks: @need_help_tasks, carousel_controls: "carousel1" %>
   <% end %>
   <% if @volunteer_tasks.count > 8 %>
     <h2>Volunteers</h2>
-    <%= render "tasks_carousel", tasks: @volunteer_tasks %>
+    <%= render "tasks_carousel", tasks: @volunteer_tasks, carousel_controls: "carousel2" %>
   <% end %>
 </div>
