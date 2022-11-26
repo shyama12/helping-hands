@@ -69,6 +69,7 @@
     grid-gap: 5px;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+    position: relative;
   }
 
   .banner:hover {
@@ -140,3 +141,19 @@
     grid-row: 1/6;
   }
 
+  .form {
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    color: white;
+    opacity: 80%;
+    padding: 20px;
+  }
+
+  .form-check {
+    background-color: white;
+    opacity: 80%;
+  }
