@@ -6,13 +6,13 @@
       <% if task.need_help? %>
         <div class="card mb-4 d-flex flex-start border border-success">
           <p class="card-title" style="margin-left: 2rem;"><%= link_to task.title, task_path(task.id) %></p>
-          <div class="avatar rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
+          <div class="avatar-map rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
           </div>
         </div>
         <% else %>
         <div class="card mb-4 d-flex flex-start border border-warning">
           <p class="card-title" style="margin-left: 2rem;"><%= link_to task.title, task_path(task.id) %></p>
-          <div class="avatar rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
+          <div class="avatar-map rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
           </div>
         </div>
         <% end %>

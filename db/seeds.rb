@@ -50,36 +50,21 @@ babysitting.save
 puts "Created #{Category.count} categories"
 
 puts "Creating tasks"
-addresses_array = ["69 New Street SOUTH WEST LONDON SW21 9DP",
-                   "920 North Street COLCHESTER CO68 0BX",
-                   "83 Chester Road KIRKCALDY KY6 8TZ",
-                   "53 Highfield Road NORWICH NR96 1NS",
-                   "1 The Avenue SOUTHAMPTON SO20 4KX",
-                   "295 Grange Road COVENTRY CV49 1SM",
-                   "87 Main Street SOUTH EAST LONDON SE90 0YU",
-                   "9919 School Lane WORCESTER WR5 6OF",
-                   "30 Park Avenue ROCHESTER ME9 9WU",
-                   "82 Park Road GLOUCESTER GL67 5YO",
-                   "343 New Road BELFAST BT48 5RG",
-                   "9795 George Street PRESTON PR63 3CQ",
-                   "4 Grove Road CHELMSFORD CM65 2DK",
-                   "10 The Grove DERBY DE80 8MB",
-                   "405 King Street BOLTON BL3 2TJ",
-                   "392 North Road KINGSTON UPON THAMES KT26 7RN",
-                   "645 Broadway PAISLEY PA68 2IO",
-                   "24 Richmond Road CARLISLE CA11 6JH",
-                   "65 Green Lane HEREFORD HR62 1CL",
-                   "58 The Drive BLACKPOOL FY19 0YE",
-                   "74 Stanley Road SHREWSBURY SY87 9HW",
-                   "621 The Green LLANDUDNO LL47 6NA",
-                   "42 Windsor Road WEST LONDON W37 5EF",
-                   "63 St. John's Road DUDLEY DY89 3NX",
-                   "27 Victoria Road KIRKWALL KW72 0AJ",
-                   "73 Station Road DARLINGTON DL88 4AD",
-                   "25 Kingsway WESTERN CENTRAL LONDON WC17 9SU",
-                   "192 Alexander Road SUNDERLAND SR23 6FQ",
-                   "93 Manchester Road BRISTOL BS36 7QM",
-                   "39 Manor Road DUMFRIES DG51 5UO"]
+addresses_array = ["29 Main St Swindon SN2 2DQ",
+                   "B4035, Chipping Campde",
+                   "55 Woodfall Avenue, Barnet, Barnet, EN5 2HB, United Kingdom",
+                   "35 Abbots Way, Bristol, BS9 4SN, United Kingdom",
+                   "Fisherman's Path, Liverpool, L37 1YD, United Kingdom",
+                   "69 Victoria Road, Formby, Liverpool, L37 1LN, United Kingdom",
+                   "2 Bagbury Road, Bude, EX23 8QJ, United Kingdom",
+                   "156 Elizabeth Road, Bude, EX23 8AS, United Kingdom",
+                   "43 Victoria Road, Bude, EX23 8RJ, United Kingdom",
+                   "2 Maer Lane, Bude, EX23 9EE, United Kingdom",
+                   "4 Petherick Road, Bude, EX23 8SW, United Kingdom",
+                   "11 Summerleaze Crescent, Bude, EX23 8HE, United Kingdom",
+                   "39 Park Crescent, Emsworth, PO10 7NT, United Kingdom",
+                   "6 Nore Crescent, Emsworth, PO10 7NA, United Kingdom"
+                  ]
 30.times do |i|
   task = Task.new(title: Faker::Lorem.paragraph(sentence_count: 1),
                   date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
@@ -87,7 +72,7 @@ addresses_array = ["69 New Street SOUTH WEST LONDON SW21 9DP",
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
                   user_id: rand(1..User.count),
                   need_help: [true, false].sample,
-                  address: addresses_array[i])
+                  address: addresses_array.sample)
   task.save
   puts "Created task with id #{task.id}"
 end
