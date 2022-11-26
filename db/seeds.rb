@@ -45,8 +45,17 @@ puts "Creating categories"
 social_interactions = Category.new(name: "Social Interactions")
 social_interactions.save
 
-babysitting = Category.new(name: "Babysitting")
-babysitting.save
+home = Category.new(name: "Home")
+home.save
+
+diy = Category.new(name: "DIY")
+diy.save
+
+running_errands = Category.new(name: "Running Errands")
+running_errands.save
+
+other = Category.new(name: "Other")
+other.save
 puts "Created #{Category.count} categories"
 
 puts "Creating tasks"
