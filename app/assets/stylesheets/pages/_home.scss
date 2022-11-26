@@ -67,15 +67,9 @@
     width: 100%;
     height: 75vh;
     grid-gap: 5px;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
     position: relative;
-  }
 
-  .banner:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
-}
+  }
 
   .banner-item1 {
     background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669315744/helping-hands/senior-father-hugging-adult-hipster-son-have-a-happy-feeling-together-elderly-caucasian-person-man-or-grandfather-smiling-with-love-in-concept-of-family-at-home-nature-outdoor-garden-banner-space-free-photo_y9suma.jpg");
@@ -143,17 +137,22 @@
 
   .form {
     position: absolute;
-    top: 250px;
-    left: 150px;
-    width: 200px;
-    height: 100px;
+    top: 230px;
+    left: 220px;
+    width: 500px;
+    height: 400px;
     background-color: white;
-    color: white;
-    opacity: 80%;
-    padding: 20px;
+    opacity: 85%;
+    padding: 30px;
+    text-align: center;
+    filter: none;
+    -webkit-filter: grayscale(0);
   }
 
-  .form-check {
-    background-color: white;
-    opacity: 80%;
+  .row {
+    padding: 10px;
   }
+
+.form-check {
+  padding-bottom: 10px;
+}
