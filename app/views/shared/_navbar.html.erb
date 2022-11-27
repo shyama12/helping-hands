@@ -12,14 +12,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <%= link_to "All listings", tasks_path, class: "nav-link" %>
+          <%= link_to "All tasks", tasks_path, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/v-shuker", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Get help / Volunteer", new_task_path, class: "dropdown-item" %>
-              <%= link_to "My listings", my_tasks_tasks_path, class: "dropdown-item" %>
+              <%= link_to "Post a new task", new_task_path, class: "dropdown-item" %>
+              <%= link_to "My tasks", my_tasks_tasks_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
