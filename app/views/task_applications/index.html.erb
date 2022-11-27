@@ -1,0 +1,13 @@
+<div class="container my-5">
+  <h1>My Applications</h1>
+  <br><br>
+  <% if @task_applications.count.zero? %>
+    <h4>You do not have any applications!</h4>
+  <% else %>
+    <h4><%= pluralize @task_applications.count, "task applications" %></h4>
+    <br><br>
+    <% @task_applications.each do |task_application| %>
+      <%= render "task_application", task_application: task_application %>
+    <% end %>
+  <% end %>
+</div>

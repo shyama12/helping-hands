@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.is_available_for_application
     @markers = @tasks.geocoded.map do |task|
       {
         lat: task.latitude,
@@ -49,12 +49,6 @@ class TasksController < ApplicationController
   def my_tasks
     @tasks = Task.where(user: current_user)
     render :my_tasks
-  end
-
-  def my_applications
-    @task_applications = TaskApplication.where(user: current_user)
-    @tasks = @task_applications.map(&:task) unless @task_applications.nil? || @task_applications.size.zero?
-    render :my_applications
   end
 
   private

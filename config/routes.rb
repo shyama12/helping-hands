@@ -5,7 +5,16 @@ Rails.application.routes.draw do
     resources :task_applications, only: [:create]
     collection do
       get :my_tasks
-      get :my_applications
+    end
+  end
+
+  resources :task_applications, only: [:index] do
+    collection do
+      get :applications_to_me
+    end
+    member do
+      patch :accept
+      patch :reject
     end
   end
 end
