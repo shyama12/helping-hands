@@ -17,4 +17,8 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
+
+  resources :chatrooms, only: [:new, :create, :show] do
+    resources :messages, only: :create
+  end
 end

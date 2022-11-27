@@ -5,14 +5,24 @@
       <% @tasks.each do |task| %>
       <% if task.need_help? %>
         <div class="card mb-4 d-flex flex-start border border-success">
+<<<<<<< HEAD
           <p class="card-title" style="margin-left: 2rem;"><%= link_to task.title, task_path(task.id), class: "narrow-card-link" %></p>
           <div class="avatar-narrow-card rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
+=======
+          <p class="card-title" style="margin-left: 2rem;"><%= link_to task.title, task_path(task.id) %></p>
+          <div class="avatar-map rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
+>>>>>>> master
           </div>
         </div>
         <% else %>
         <div class="card mb-4 d-flex flex-start border border-warning">
+<<<<<<< HEAD
           <p class="card-title" style="margin-left: 2rem;"><%= link_to task.title, task_path(task.id), class: "narrow-card-link" %></p>
           <div class="avatar-narrow-card rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
+=======
+          <p class="card-title" style="margin-left: 2rem;"><%= link_to task.title, task_path(task.id) %></p>
+          <div class="avatar-map rounded-circle border border-2 text-center"> <i class="fa-regular fa-user"></i>
+>>>>>>> master
           </div>
         </div>
         <% end %>
