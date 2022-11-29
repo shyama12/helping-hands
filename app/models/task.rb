@@ -7,7 +7,7 @@ class Task < ApplicationRecord
   validate :date_time_is_valid_datetime
   validates :need_help, inclusion: { in: [true, false] }
   validates :category, presence: true
-  validates :title, presence: true, length: { minimum: 6, maximum: 50 }
+  validates :title, presence: true, length: { minimum: 6, maximum: 70 }
   validates :description, length: { maximum: 1000 }
   # validates :address, presence: true
   scope :is_available_for_application, -> { where(available: true) }

@@ -96,16 +96,49 @@ addresses_array = ["29 Main St Swindon SN2 2DQ",
                    "LL16 5NS, Denbigh, Conwy, Wales, United Kingdom",
                    "A49, Church Stretton, SY6 7JP, United Kingdom"
                   ]
+
+titles_nh_category_array = [
+  ["Looking to make a friend in my new neighborhood", true, 1],
+  ["Need someone that can teach me basics in cooking", true, 2],
+  ["Need help building a bird house", true, 3],
+  ["Looking for help picking up my medicines", true, 4],
+  ["Looking for a volunteer to test our app", true, 5],
+  ["If someone's new to the city, I can be your friend!", false, 1],
+  ["I can teach you cooking basics", false, 2],
+  ["I'm free to help with DIY projects", false, 3],
+  ["I just got a new car and can pick things up for those who need it", false, 4],
+  ["I can help if someone needs lessons in Java!", false, 5],
+  ["Need someone to pet-sit my cat", true, 1],
+  ["Does anyone know how to recarpet floors?", true, 2],
+  ["Need a little advice on tools for a DIY outhouse", true, 3],
+  ["Looking for someone to carpool with to office", true, 4],
+  ["Does anyone have tips on the best eateries around?", true, 5],
+  ["I can be your tour guide for a day and show you around the city", false, 1],
+  ["Does anyone need a babysitter?", false, 2],
+  ["I'm a mechanic looking to help people working on their own projects", false, 3],
+  ["Does anyone want to carpool to work in the mornings?", false, 4],
+  ["Free zumba lessons!", false, 5],
+  ["Looking to make a friend in my new neighborhood", true, 1],
+  ["Need someone that can teach me basics in cooking", true, 2],
+  ["Need help building a bird house", true, 3],
+  ["Looking for help picking up my medicines", true, 4],
+  ["Looking for a volunteer to test our app", true, 5],
+  ["If someone's new to the city, I can be your friend!", false, 1],
+  ["I can teach you cooking basics", false, 2],
+  ["I'm free to help with DIY projects", false, 3],
+  ["I just got a new car and can pick things up for those who need it", false, 4],
+  ["I can help if someone needs lessons in Java!", false, 5]
+]
 30.times do |i|
   user_id_rand = rand(User.first.id...(User.first.id + User.count))
   category_id_rand = rand(Category.first.id...(Category.first.id + Category.count))
 
-  task = Task.new(title: Faker::Lorem.paragraph(sentence_count: 1),
+  task = Task.new(title: titles_nh_category_array[i][0],
                   date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
-                  category_id: category_id_rand,
+                  category_id: titles_nh_category_array[i][2],
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
                   user_id: user_id_rand,
-                  need_help: [true, false].sample,
+                  need_help: titles_nh_category_array[i][1],
                   address: addresses_array[i])
   task.save!
   puts tasks.errors.messages if task.errors.present?

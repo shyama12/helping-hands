@@ -4,6 +4,12 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.is_available_for_application
+    if params[:need].present? && !params[:can].present?
+      @tasks = @tasks.where(need_help: false)
+    elsif params[:can].present? && !params[:need].present?
+      @tasks = @tasks.where(need_help: true)
+    end
+    @tasks = @tasks.where(category_id: params[:categories]) unless params[:categories].empty? if params[:categories].present?
     @markers = @tasks.geocoded.map do |task|
       {
         nH: task.need_help?,
