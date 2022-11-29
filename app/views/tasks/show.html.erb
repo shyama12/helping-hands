@@ -18,7 +18,11 @@
     </div>
     <div class="info-box">
       <h5><strong>Location</strong></h5>
-      <div class = "border">A map showing the location of the task</div>
+      <div id="map" style="width: 600px; height:200px;" class="col-12 col-lg-6 my-4"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
     <div class="info-box">
       <h5><strong>Description</strong></h5>
@@ -29,12 +33,13 @@
         <h5><strong>Owner profile</strong></h5>
         <br>
         <div class="owner-details">
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="owner-pic"/>
+          <%= cl_image_tag @task.user.photo.key, class: "owner-pic" %>
           <div class="py-3">
             <h5><strong><%= @task.user.first_name %> <%= @task.user.last_name %></strong></h5>
           </div>
           <div class="d-flex flex-row justify-self-end">
-            <div class="mx-3"><%= link_to "Apply for this task", "#", class: "btn-black-transparent-long-round" %></div>
+            <div class="mx-3"><%= link_to "Apply for this task", task_task_applications_path(@task), data: { turbo_method: :post}, class: "btn-black-transparent-long-round" %></div>
+            <div class="mx-3"><%= link_to "View Profile", profile_user_path(@task.user), class: "btn-black-transparent-long-round" %></div>
             <div class="mx-3"><%= link_to "Contact owner", new_chatroom_path(chat_user: @task.user.id), class: "btn-black-transparent-long-round" %></div>
           </div>
         </div>

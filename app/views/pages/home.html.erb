@@ -48,6 +48,7 @@
 
 <br>
 <div class="container">
+<br><br>
   <h2 class='home-cards-title'>How does it work?</h2>
   <div class="wrapper">
     <div class="card-one">
@@ -78,21 +79,14 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-<br>
-<br>
-<br>
-
-<div class="container">
-  <% if @need_help_tasks.count > 8 %>
-    <h2>Need help</h2>
-    <%= render "tasks_carousel", tasks: @need_help_tasks, carousel_controls: "carousel1" %>
-  <% end %>
-  <% if @volunteer_tasks.count > 8 %>
-    <h2>Volunteers</h2>
-    <%= render "tasks_carousel", tasks: @volunteer_tasks, carousel_controls: "carousel2" %>
-  <% end %>
+  <br>
+  <br>
+  <br>
+  <strong>Listings near you</strong>
+  <div class="m-1">
+    <% if @need_help_tasks.count > 8 %>
+      <br>
+      <%= render "tasks_carousel", tasks: @tasks, carousel_controls: "carousel1" %>
+    <% end %>
+  </div>
 </div>

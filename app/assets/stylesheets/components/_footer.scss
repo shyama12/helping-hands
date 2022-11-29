@@ -1,0 +1,22 @@
+footer * {
+  display: block;
+}
+
+footer {
+  height: 200px;
+  background-color: white;
+  color: rgba($color: #000000, $alpha: 0.5);
+  font-size: 12px;
+  margin-top: 50px;
+  width: 100%;
+
+  a {
+    color: rgba($color: #000000, $alpha: 0.5);
+    font-size: 12px;
+    margin: 20px;
+  }
+
+  i {
+    margin: 10px;
+  }
+}

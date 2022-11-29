@@ -3,9 +3,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.is_available_for_application
     @markers = @tasks.geocoded.map do |task|
       {
+        nH: task.need_help?,
         lat: task.latitude,
         lng: task.longitude,
         info_window: render_to_string(partial: "info_window", locals: { task: task })
@@ -28,6 +29,10 @@ class TasksController < ApplicationController
   end
 
   def show
+    @markers = [{ nH: @task.need_help?,
+                  lat: @task.latitude,
+                  lng: @task.longitude,
+                  info_window: render_to_string(partial: "info_window", locals: { task: @task }) }]
   end
 
   def edit
@@ -48,7 +53,7 @@ class TasksController < ApplicationController
 
   def my_tasks
     @tasks = Task.where(user: current_user)
-    render :index
+    render :my_tasks
   end
 
   private

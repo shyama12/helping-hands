@@ -9,6 +9,8 @@
   width: 60%;
   height: 700px;
   flex-shrink: 2;
+  position: sticky;
+  top: 60px;
 }
 
 .card {
@@ -32,4 +34,11 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  background-color: rgba($color: white, $alpha: 0);
+  box-shadow: 0 0 0;
+}
+
+.mapboxgl-popup-close-button {
+  font-weight: bold;
 }

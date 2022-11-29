@@ -1,33 +1,127 @@
 <% if tasks.count > 8 %>
-  <div id="<%= carousel_controls %>" class="carousel slide" data-bs-ride="carousel">
+  <div id="<%= carousel_controls %>xl" class="carousel slide d-none d-xl-block" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
           <% tasks[0...3].each do |task| %>
             <%= render "tasks/task", task: task %>
           <% end %>
         </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[3...6].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
           </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[6...9].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
           </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#<%= carousel_controls %>" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#<%= carousel_controls %>xl" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#<%= carousel_controls %>" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#<%= carousel_controls %>xl" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div id="<%= carousel_controls %>lg" class="carousel slide d-none d-lg-block d-xl-none" data-interval="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-around">
+          <% tasks[0...2].each do |task| %>
+            <%= render "tasks/task", task: task %>
+          <% end %>
+        </div>
+      </div>
+      <div class="carousel-item">
+          <div class="d-flex justify-content-around">
+            <% tasks[2...4].each do |task| %>
+              <%= render "tasks/task", task: task %>
+            <% end %>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="d-flex justify-content-around">
+            <% tasks[4...6].each do |task| %>
+              <%= render "tasks/task", task: task %>
+            <% end %>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="d-flex justify-content-around">
+            <% tasks[6...8].each do |task| %>
+              <%= render "tasks/task", task: task %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#<%= carousel_controls %>lg" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#<%= carousel_controls %>lg" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div id="<%= carousel_controls %>md" class="carousel slide d-lg-none" data-interval="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[0] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[1] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[2] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[3] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[4] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[5] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[6] %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-around">
+            <%= render "tasks/task", task: tasks[7] %>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#<%= carousel_controls %>md" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#<%= carousel_controls %>md" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>

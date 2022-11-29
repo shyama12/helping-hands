@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Start seeds"
+TaskApplication.destroy_all
 Task.destroy_all
 Category.destroy_all
 User.destroy_all
@@ -17,6 +18,7 @@ shyama = User.new(first_name: "Shyama",
                   address: "Bergen, Norway",
                   email: "shyama@helpinghands.com",
                   password: '123456')
+shyama.photo.attach(io: File.open("./app/assets/images/shyama.jfif"), filename: "shyama_image.png", content_type: "image/png")
 shyama.save
 
 ana = User.new(first_name: "Ana",
@@ -24,6 +26,7 @@ ana = User.new(first_name: "Ana",
                address: "Munich, Germany",
                email: "ana@helpinghands.com",
                password: '123456')
+ana.photo.attach(io: File.open("./app/assets/images/ana.png"), filename: "ana_image.png", content_type: "image/png")
 ana.save
 
 verity = User.new(first_name: "Verity",
@@ -31,6 +34,7 @@ verity = User.new(first_name: "Verity",
                   address: "Emsworth, UK",
                   email: "verity@helpinghands.com",
                   password: '123456')
+verity.photo.attach(io: File.open("./app/assets/images/verity.jfif"), filename: "verity_image.png", content_type: "image/png")
 verity.save
 
 seb = User.new(first_name: "Seb",
@@ -38,6 +42,7 @@ seb = User.new(first_name: "Seb",
                address: "Berlin, Germany",
                email: "seb@helpinghands.com",
                password: '123456')
+seb.photo.attach(io: File.open("./app/assets/images/seb.jfif"), filename: "seb_image.png", content_type: "image/png")
 seb.save
 puts "Created #{User.count} users"
 
@@ -72,17 +77,38 @@ addresses_array = ["29 Main St Swindon SN2 2DQ",
                    "4 Petherick Road, Bude, EX23 8SW, United Kingdom",
                    "11 Summerleaze Crescent, Bude, EX23 8HE, United Kingdom",
                    "39 Park Crescent, Emsworth, PO10 7NT, United Kingdom",
-                   "6 Nore Crescent, Emsworth, PO10 7NA, United Kingdom"
+                   "6 Nore Crescent, Emsworth, PO10 7NA, United Kingdom",
+                   "7 Henley Road, London, N18 1NS, United Kingdom",
+                   "Harbolets Road, Pulborough, RH20 2LE, United Kingdom",
+                   "A352, Dorchester, DT2 7SH, United Kingdom",
+                   "B3289, Truro, TR2 5JQ, United Kingdom",
+                   "PL30 5BZ, Bodmin, Cornwall, England, United Kingdom",
+                   "SY8 2AL, Ludlow, Shropshire, England, United Kingdom",
+                   "1 Union Street, Beeston, Nottingham, NG9 2LU, United Kingdom",
+                   "2 Cornwall Avenue, Beeston, Nottingham, NG9 1NL, United Kingdom",
+                   "South Croxton Road, Leicester, LE7 3RX, United Kingdom",
+                   "KA18 2RU, Cumnock, East Ayrshire, Scotland, United Kingdom",
+                   "TD2 6SJ, Lauder, Scottish Borders, Scotland, United Kingdom",
+                   "YO7 2JX, Thirsk, North Yorkshire, England, United Kingdom",
+                   "Gatenby Lane, Northallerton, DL7 9PG, United Kingdom",
+                   "Paddock Way, Beverley, HU17 0UN, United Kingdom",
+                   "Patrington Road, Hull, HU12 0QN, United Kingdom",
+                   "LL16 5NS, Denbigh, Conwy, Wales, United Kingdom",
+                   "A49, Church Stretton, SY6 7JP, United Kingdom"
                   ]
 30.times do |i|
+  user_id_rand = rand(User.first.id...(User.first.id + User.count))
+  category_id_rand = rand(Category.first.id...(Category.first.id + Category.count))
+
   task = Task.new(title: Faker::Lorem.paragraph(sentence_count: 1),
                   date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
-                  category_id: rand(1..Category.count),
+                  category_id: category_id_rand,
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
-                  user_id: rand(1..User.count),
+                  user_id: user_id_rand,
                   need_help: [true, false].sample,
-                  address: addresses_array.sample)
-  task.save
+                  address: addresses_array[i])
+  task.save!
+  puts tasks.errors.messages if task.errors.present?
   puts "Created task with id #{task.id}"
 end
 

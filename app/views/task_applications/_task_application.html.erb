@@ -1,0 +1,16 @@
+<div class="w-100 my-3 p-3 bg-light <%= task_application.task.need_help? ? 'orange-border' : 'green-border' %>">
+  <strong><%= task_application.task.title %></strong>
+  <br><br>
+  <p class="m-0"><strong>Applicant</strong>: <%= task_application.user.first_name %> <%= task_application.user.last_name %>
+  <p class="m-0"><strong>Category</strong>: <%= task_application.task.category.name %></p>
+  <p class="m-0"><strong>Time</strong>: <%= task_application.task.date_time.strftime(' %B %e, %Y - %l:%M %p') %></p>
+  <p class="m-0"><strong>Owner</strong>: <%= task_application.task.user.first_name %> <%= task_application.task.user.last_name %></p>
+  <p class="m-0"><strong>Status</strong>: <%= task_application.status %></p>
+  <br>
+  <p class="m-0"><%= task_application.task.description %></p>
+  <br>
+  <% if task_application.task.user == current_user && task_application.status == "open" %>
+    <%= link_to task_application.task.need_help? ? 'Accept help' : 'Offer help', accept_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn-black-transparent-long-round" %>
+    <%= link_to 'Reject', reject_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn-black-transparent-long-round" %>
+  <% end %>
+</div>
