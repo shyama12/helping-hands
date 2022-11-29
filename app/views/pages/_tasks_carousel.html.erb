@@ -2,21 +2,21 @@
   <div id="<%= carousel_controls %>xl" class="carousel slide d-none d-xl-block" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
           <% tasks[0...3].each do |task| %>
             <%= render "tasks/task", task: task %>
           <% end %>
         </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[3...6].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
           </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[6...9].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
@@ -36,28 +36,28 @@
   <div id="<%= carousel_controls %>lg" class="carousel slide d-none d-lg-block d-xl-none" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
           <% tasks[0...2].each do |task| %>
             <%= render "tasks/task", task: task %>
           <% end %>
         </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[2...4].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
           </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[4...6].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
           </div>
       </div>
       <div class="carousel-item">
-          <div class="task-cards-wrapper">
+          <div class="d-flex justify-content-around">
             <% tasks[6...8].each do |task| %>
               <%= render "tasks/task", task: task %>
             <% end %>
@@ -77,42 +77,42 @@
   <div id="<%= carousel_controls %>md" class="carousel slide d-lg-none" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[0] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[1] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[2] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[3] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[4] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[5] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[6] %>
         </div>
       </div>
       <div class="carousel-item">
-        <div class="task-cards-wrapper">
+        <div class="d-flex justify-content-around">
             <%= render "tasks/task", task: tasks[7] %>
         </div>
       </div>

@@ -6,6 +6,7 @@ class TasksController < ApplicationController
     @tasks = Task.is_available_for_application
     @markers = @tasks.geocoded.map do |task|
       {
+        nH: task.need_help?,
         lat: task.latitude,
         lng: task.longitude,
         info_window: render_to_string(partial: "info_window", locals: { task: task })
@@ -28,6 +29,10 @@ class TasksController < ApplicationController
   end
 
   def show
+    @markers = [{ nH: @task.need_help?,
+                  lat: @task.latitude,
+                  lng: @task.longitude,
+                  info_window: render_to_string(partial: "info_window", locals: { task: @task }) }]
   end
 
   def edit

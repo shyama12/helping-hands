@@ -81,3 +81,6 @@ gem 'geocoder'
 
 
 gem "faker"
+
+
+gem "cloudinary"
