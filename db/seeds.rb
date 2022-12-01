@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Start seeds"
+Message.destroy_all
+Chatroom.destroy_all
 TaskApplication.destroy_all
 Task.destroy_all
 Category.destroy_all
@@ -98,36 +100,36 @@ addresses_array = ["29 Main St Swindon SN2 2DQ",
                   ]
 
 titles_nh_category_array = [
-  ["Looking to make a friend in my new neighborhood", true, 1],
-  ["Need someone that can teach me basics in cooking", true, 2],
-  ["Need help building a bird house", true, 3],
-  ["Looking for help picking up my medicines", true, 4],
-  ["Looking for a volunteer to test our app", true, 5],
-  ["If someone's new to the city, I can be your friend!", false, 1],
-  ["I can teach you cooking basics", false, 2],
-  ["I'm free to help with DIY projects", false, 3],
-  ["I just got a new car and can pick things up for those who need it", false, 4],
-  ["I can help if someone needs lessons in Java!", false, 5],
-  ["Need someone to pet-sit my cat", true, 1],
-  ["Does anyone know how to recarpet floors?", true, 2],
-  ["Need a little advice on tools for a DIY outhouse", true, 3],
-  ["Looking for someone to carpool with to office", true, 4],
-  ["Does anyone have tips on the best eateries around?", true, 5],
-  ["I can be your tour guide for a day and show you around the city", false, 1],
-  ["Does anyone need a babysitter?", false, 2],
-  ["I'm a mechanic looking to help people working on their own projects", false, 3],
-  ["Does anyone want to carpool to work in the mornings?", false, 4],
-  ["Free zumba lessons!", false, 5],
-  ["Looking to make a friend in my new neighborhood", true, 1],
-  ["Need someone that can teach me basics in cooking", true, 2],
-  ["Need help building a bird house", true, 3],
-  ["Looking for help picking up my medicines", true, 4],
-  ["Looking for a volunteer to test our app", true, 5],
-  ["If someone's new to the city, I can be your friend!", false, 1],
-  ["I can teach you cooking basics", false, 2],
-  ["I'm free to help with DIY projects", false, 3],
-  ["I just got a new car and can pick things up for those who need it", false, 4],
-  ["I can help if someone needs lessons in Java!", false, 5]
+  ["Looking to make a friend in my new neighborhood", true, Category.first.id],
+  ["Need someone that can teach me basics in cooking", true, Category.first.id + 1],
+  ["Need help building a bird house", true, Category.first.id + 2],
+  ["Looking for help picking up my medicines", true, Category.first.id + 3],
+  ["Looking for a volunteer to test our app", true, Category.first.id + 4],
+  ["If someone's new to the city, I can be your friend!", false, Category.first.id],
+  ["I can teach you cooking basics", false, Category.first.id + 1],
+  ["I'm free to help with DIY projects", false, Category.first.id + 2],
+  ["I just got a new car and can pick things up for those who need it", false, Category.first.id + 3],
+  ["I can help if someone needs lessons in Java!", false, Category.first.id + 4],
+  ["Need someone to pet-sit my cat", true, Category.first.id],
+  ["Does anyone know how to recarpet floors?", true, Category.first.id + 1],
+  ["Need a little advice on tools for a DIY outhouse", true, Category.first.id + 2],
+  ["Looking for someone to carpool with to office", true, Category.first.id + 3],
+  ["Does anyone have tips on the best eateries around?", true, Category.first.id + 4],
+  ["I can be your tour guide for a day and show you around the city", false, Category.first.id],
+  ["Does anyone need a babysitter?", false, Category.first.id + 1],
+  ["I'm a mechanic looking to help people working on their own projects", false, Category.first.id + 2],
+  ["Does anyone want to carpool to work in the mornings?", false, Category.first.id + 3],
+  ["Free zumba lessons!", false, Category.first.id + 4],
+  ["Looking to make a friend in my new neighborhood", true, Category.first.id],
+  ["Need someone that can teach me basics in cooking", true, Category.first.id + 1],
+  ["Need help building a bird house", true, Category.first.id + 2],
+  ["Looking for help picking up my medicines", true, Category.first.id + 3],
+  ["Looking for a volunteer to test our app", true, Category.first.id + 4],
+  ["If someone's new to the city, I can be your friend!", false, Category.first.id],
+  ["I can teach you cooking basics", false, Category.first.id + 1],
+  ["I'm free to help with DIY projects", false, Category.first.id + 2],
+  ["I just got a new car and can pick things up for those who need it", false, Category.first.id + 3],
+  ["I can help if someone needs lessons in Java!", false, Category.first.id + 4]
 ]
 30.times do |i|
   user_id_rand = rand(User.first.id...(User.first.id + User.count))
