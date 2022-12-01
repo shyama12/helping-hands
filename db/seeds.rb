@@ -136,7 +136,7 @@ titles_nh_category_array = [
   category_id_rand = rand(Category.first.id...(Category.first.id + Category.count))
 
   task = Task.new(title: titles_nh_category_array[i][0],
-                  date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + Category.first.id + 10, format: :long),
+                  date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
                   category_id: titles_nh_category_array[i][2],
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
                   user_id: user_id_rand,
