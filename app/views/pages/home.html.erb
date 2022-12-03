@@ -14,7 +14,7 @@
 
   <%= form_tag tasks_path, method: :get, class: "form" do  %>
     <div class="row">
-      <h3>Some title or quote</h3>
+      <h3>Find tasks that suit you</h3>
     </div>
     <div class="row">
       <div class="d-flex justify-content-around">
@@ -81,7 +81,7 @@
   <br>
   <br>
   <br>
-  <strong>Listings near you</strong>
+  <div class="home-cards-title"><h2>Recently added tasks</h2></div>
   <div class="m-1">
     <% if @need_help_tasks.count > 8 %>
       <br>
