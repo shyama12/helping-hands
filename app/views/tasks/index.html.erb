@@ -1,7 +1,7 @@
 <div class="container py-2">
   <div class="emptyResult">
     <% if @tasks.empty? %>
-      <h1><em class="text-muted">Be the first one to create a task</em> in <%= params[:query] %></h1>
+      <h1><em class="text-muted">Be the first one to create a task</em> in <%= params[:query] %> or just <%= link_to "try again", root_path %></h1>
       <%= link_to "Create a Task",  new_task_path,  class: "btn btn-primary" %>
   </div>
     <% else %>
