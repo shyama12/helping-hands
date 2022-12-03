@@ -84,3 +84,5 @@ gem "faker"
 
 
 gem "cloudinary"
+gem 'opentok'
+gem 'pry-byebug'

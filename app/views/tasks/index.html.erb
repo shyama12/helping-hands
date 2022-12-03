@@ -1,5 +1,11 @@
-<div class="container py-5">
-  <h1> Where can you get help?</h1>
+<div class="container py-2">
+  <div class="emptyResult">
+    <% if @tasks.empty? %>
+      <h1><em class="text-muted">Be the first one to create a task</em> in <%= params[:query] %></h1>
+      <%= link_to "Create a Task",  new_task_path,  class: "btn btn-primary" %>
+  </div>
+    <% else %>
+  <h1> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? </h1> <% end %>
   <div class="row">
     <div id="tasks" class="col-12 col-lg-6 my-4">
       <div class="task-cards-wrapper">
@@ -14,6 +20,7 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <% end %>
     <%# <% @tasks.each do |task| %>
         <%# <div class="card testimonial-card d-flex text-center" stlye=" weight: 4rem; height: 3rem;"> %>
           <%# <div class="card-up" style="background-color: #9d789b; height: 1rem;">

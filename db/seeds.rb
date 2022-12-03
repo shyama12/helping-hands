@@ -64,38 +64,38 @@ other.save
 puts "Created #{Category.count} categories"
 
 puts "Creating tasks"
-addresses_array = ["29 Main St Swindon SN2 2DQ",
-                   "B4035, Chipping Campde",
-                   "55 Woodfall Avenue, Barnet, Barnet, EN5 2HB, United Kingdom",
-                   "35 Abbots Way, Bristol, BS9 4SN, United Kingdom",
-                   "Fisherman's Path, Liverpool, L37 1YD, United Kingdom",
-                   "69 Victoria Road, Formby, Liverpool, L37 1LN, United Kingdom",
-                   "2 Bagbury Road, Bude, EX23 8QJ, United Kingdom",
-                   "156 Elizabeth Road, Bude, EX23 8AS, United Kingdom",
-                   "43 Victoria Road, Bude, EX23 8RJ, United Kingdom",
-                   "2 Maer Lane, Bude, EX23 9EE, United Kingdom",
-                   "4 Petherick Road, Bude, EX23 8SW, United Kingdom",
-                   "11 Summerleaze Crescent, Bude, EX23 8HE, United Kingdom",
-                   "39 Park Crescent, Emsworth, PO10 7NT, United Kingdom",
-                   "6 Nore Crescent, Emsworth, PO10 7NA, United Kingdom",
-                   "7 Henley Road, London, N18 1NS, United Kingdom",
-                   "Harbolets Road, Pulborough, RH20 2LE, United Kingdom",
-                   "A352, Dorchester, DT2 7SH, United Kingdom",
-                   "B3289, Truro, TR2 5JQ, United Kingdom",
-                   "PL30 5BZ, Bodmin, Cornwall, England, United Kingdom",
-                   "SY8 2AL, Ludlow, Shropshire, England, United Kingdom",
-                   "1 Union Street, Beeston, Nottingham, NG9 2LU, United Kingdom",
-                   "2 Cornwall Avenue, Beeston, Nottingham, NG9 1NL, United Kingdom",
-                   "South Croxton Road, Leicester, LE7 3RX, United Kingdom",
-                   "KA18 2RU, Cumnock, East Ayrshire, Scotland, United Kingdom",
-                   "TD2 6SJ, Lauder, Scottish Borders, Scotland, United Kingdom",
-                   "YO7 2JX, Thirsk, North Yorkshire, England, United Kingdom",
-                   "Gatenby Lane, Northallerton, DL7 9PG, United Kingdom",
-                   "Paddock Way, Beverley, HU17 0UN, United Kingdom",
-                   "Patrington Road, Hull, HU12 0QN, United Kingdom",
-                   "LL16 5NS, Denbigh, Conwy, Wales, United Kingdom",
-                   "A49, Church Stretton, SY6 7JP, United Kingdom"
-                  ]
+addresses_city_array = [
+  ["55 Woodfall Avenue, Barnet, Barnet, EN5 2HB, United Kingdom", "Barnet"],
+  ["35 Abbots Way, Bristol, BS9 4SN, United Kingdom", "Bristol"],
+  ["Fisherman's Path, Liverpool, L37 1YD, United Kingdom", "Liverpool"],
+  ["69 Victoria Road, Formby, Liverpool, L37 1LN, United Kingdom", "Liverpool"],
+  ["2 Bagbury Road, Bude, EX23 8QJ, United Kingdom", "Bude"],
+  ["156 Elizabeth Road, Bude, EX23 8AS, United Kingdom", "Bude"],
+  ["43 Victoria Road, Bude, EX23 8RJ, United Kingdom", "Bude"],
+  ["2 Maer Lane, Bude, EX23 9EE, United Kingdom", "Bude"],
+  ["4 Petherick Road, Bude, EX23 8SW, United Kingdom", "Bude"],
+  ["11 Summerleaze Crescent, Bude, EX23 8HE, United Kingdom", "Bude"],
+  ["39 Park Crescent, Emsworth, PO10 7NT, United Kingdom", "Emsworth"],
+  ["6 Nore Crescent, Emsworth, PO10 7NA, United Kingdom", "Emsworth"],
+  ["7 Henley Road, London, N18 1NS, United Kingdom", "London"],
+  ["Harbolets Road, Pulborough, RH20 2LE, United Kingdom", "Pulborough"],
+  ["A352, Dorchester, DT2 7SH, United Kingdom", "Dorchester"],
+  ["B3289, Truro, TR2 5JQ, United Kingdom", "Truro"],
+  ["PL30 5BZ, Bodmin, Cornwall, England, United Kingdom", "Cornwall"],
+  ["SY8 2AL, Ludlow, Shropshire, England, United Kingdom", "Shropshire"],
+  ["1 Union Street, Beeston, Nottingham, NG9 2LU, United Kingdom", "Nottingham"],
+  ["2 Cornwall Avenue, Beeston, Nottingham, NG9 1NL, United Kingdom", "Nottingham"],
+  ["South Croxton Road, Leicester, LE7 3RX, United Kingdom", "Leicester"],
+  ["KA18 2RU, Cumnock, East Ayrshire, Scotland, United Kingdom", "East Ayrshire"],
+  ["TD2 6SJ, Lauder, Scottish Borders, Scotland, United Kingdom", "Scottish Borders"],
+  ["YO7 2JX, Thirsk, North Yorkshire, England, United Kingdom", "North Yorkshire"],
+  ["Gatenby Lane, Northallerton, DL7 9PG, United Kingdom", "Northallerton"],
+  ["118 Devonshire Street, Westminster, London, W1G 6PD, United Kingdom", "London"],
+  ["165 Oxford Street, Westminster, London, W1D 2JL, United Kingdom", "London"],
+  ["Osnaburgh Terrace, Camden, London, NW1 3DE, United Kingdom", "London"],
+  ["56 Perrers Road, Hammersmith and Fulham, London, W6 0EZ, United Kingdom", "London"],
+  ["Pynham Crescent, Chichester, PO18 8FQ, United Kingdom", "Chichester"]
+]
 
 titles_nh_category_array = [
   ["Looking to make a friend in my new neighborhood", true, 1],
@@ -135,11 +135,12 @@ titles_nh_category_array = [
 
   task = Task.new(title: titles_nh_category_array[i][0],
                   date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
-                  category_id: titles_nh_category_array[i][2],
+                  category_id: Category.all.sample.id,
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
-                  user_id: user_id_rand,
+                  user_id: User.all.sample.id,
                   need_help: titles_nh_category_array[i][1],
-                  address: addresses_array[i])
+                  address: addresses_city_array[i][0],
+                  city: addresses_city_array[i][1])
   task.save!
   puts tasks.errors.messages if task.errors.present?
   puts "Created task with id #{task.id}"

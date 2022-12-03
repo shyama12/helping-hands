@@ -4,12 +4,23 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.is_available_for_application
-    if params[:need].present? && !params[:can].present?
-      @tasks = @tasks.where(need_help: false)
-    elsif params[:can].present? && !params[:need].present?
-      @tasks = @tasks.where(need_help: true)
+    if params[:need].present? && !params[:can].present? && params[:query].present?
+        @tasks = Task.where(category_id: params[:categories], city: params[:query], need_help: false)
+    elsif params[:can].present? && !params[:need].present? && params[:query].present?
+        @tasks = Task.where(category_id: params[:categories], city: params[:query], need_help: true)
+    elsif params[:need].present? && !params[:categories].present? && !params[:query].present?
+        @tasks = Task.where(need_help: false)
+    elsif params[:can].present? && !params[:categories].present? && !params[:query].present?
+        @tasks = Task.where(need_help: true)
+    elsif params[:query].present? && !params[:can].present? && !params[:need].present? && !params[:categories].present?
+        @tasks = Task.where(city: params[:query])
+    elsif params[:need].present? && params[:query].empty? && params[:can].empty?
+        @tasks = Task.where(category_id: params[:categories], need_help: false)
+    elsif params[:can].present? && !params[:query].present? && !params[:need].present?
+      @tasks = Task.where(need_help: true, category_id: params[:categories])
+    else
+        @tasks = Task.all
     end
-    @tasks = @tasks.where(category_id: params[:categories]) unless params[:categories].empty? if params[:categories].present?
     @markers = @tasks.geocoded.map do |task|
       {
         nH: task.need_help?,
