@@ -1,13 +1,14 @@
-development:
-  adapter: async
-
-test:
-  adapter: test
-
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDISCLOUD_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: helping_hands_production
+  url: redis://localhost:6379/1
 
-ssl_params:
-  verify_mode: <%= OpenSSL::SSL::VERIFY_NONE %>
+development:
+  adapter: redis
+  url: redis://localhost:6379/1
+
+staging:
+  adapter: redis
+  url: redis://localhost:6379/1
+
+test:
+  adapter: async
