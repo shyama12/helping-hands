@@ -1,11 +1,12 @@
 
 // Specific CSS for your home-page
+
 .how-to {
   margin-left: calc(-100vw / 2 + 765px / 2);
     margin-right: calc(-100vw / 2 + 765px / 2);
     padding-top: 10vh;
     padding-bottom: 10vh;
-    box-sizing: boder-box;
+    box-sizing: border-box;
     background-color: white;
 }
 .wrapper {
@@ -30,8 +31,7 @@
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: none;
   display: flex;
   align-items: center;
 }
@@ -179,9 +179,9 @@
 
 .form-select {
   margin-bottom: 20px;
+}
 
 .btn-primary {
-  background-color:#A14DA0;
+  background-color: #A14DA0;
   border: none;
-
 }
