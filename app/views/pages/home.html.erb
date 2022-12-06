@@ -10,7 +10,7 @@
   <div class="banner-item8 item"></div>
 
 
-  <%= form_tag tasks_path, method: :get, class: "form" do  %>
+  <%= form_tag tasks_path, method: :get, class: "form" do %>
     <div class="row">
       <h3>Find tasks that suit you</h3>
     </div>
@@ -31,47 +31,43 @@
       <%= label_tag 'categories', 'Categories' %>
       <br><br>
       <%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name"), include_blank: "All", class: "form-select" %>
-      <br><br>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Type your city"
-       %>
     </div>
     <br><br>
-    <%= submit_tag"Search", class: "btn btn-primary" %>
+    <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+      Search
+    <% end %>
   <% end %>
 </div>
 
+<br>
 <div class="container">
-  <div class="how-to">
-    <h2 class='home-cards-title'>How does it work?</h2>
-    <div class="wrapper">
-      <div class="card-one">
-        <div class="card-product">
-          <%= image_tag "one.jpg" %>
-          <div class="card-product-infos">
-            <h2>Choose if you want help or to volunteer</h2>
-            <p>Enter your location and browse people in your area who <strong>require help</strong> or are available <strong>to help you.</strong></p>
-          </div>
+<br><br>
+  <h2 class='home-cards-title'>How does it work?</h2>
+  <div class="wrapper">
+    <div class="card-one">
+      <div class="card-product">
+        <%= image_tag "one.jpg" %>
+        <div class="card-product-infos">
+          <h2>Choose if you want help or to volunteer</h2>
+          <p>Enter your location and browse people in your area who <strong>require help</strong> or are available <strong>to help you.</strong></p>
         </div>
       </div>
-      <div class="card-two">
-        <div class="card-product">
-          <%= image_tag "two.jpg" %>
-          <div class="card-product-infos">
-            <h2>Search for helping hands in your area</h2>
-            <p>Browse people based on tasks and availability.</p>
-          </div>
+    </div>
+    <div class="card-two">
+      <div class="card-product">
+        <%= image_tag "two.jpg" %>
+        <div class="card-product-infos">
+          <h2>Search for helping hands in your area</h2>
+          <p>Browse people based on tasks and availability.</p>
         </div>
       </div>
-      <div class="card-three">
-        <div class="card-product">
-          <%= image_tag "three.jpg" %>
-          <div class="card-product-infos">
-            <h2>Connect with others and get the task done</h2>
-            <p>Login and create a profile to live chat with another person to sort out the finer details.</p>
-          </div>
+    </div>
+    <div class="card-three">
+      <div class="card-product">
+        <%= image_tag "three.jpg" %>
+        <div class="card-product-infos">
+          <h2>Connect with others and get the task done</h2>
+          <p>Login and create a profile to live chat with another person to sort out the finer details.</p>
         </div>
       </div>
     </div>
