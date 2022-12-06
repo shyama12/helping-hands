@@ -18,6 +18,7 @@
     </div>
     <div class="info-box">
       <h5><strong>Location</strong></h5>
+      <p><%= @task.address %></p>
       <div id="map" style="width: 600px; height:200px;" class="col-12 col-lg-6 my-4"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"

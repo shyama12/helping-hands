@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Start seeds"
 Message.destroy_all
+ChatroomUser.destroy_all
 Chatroom.destroy_all
 TaskApplication.destroy_all
 Task.destroy_all
@@ -67,7 +68,7 @@ puts "Created #{Category.count} categories"
 
 puts "Creating tasks"
 addresses_array = ["29 Main St Swindon SN2 2DQ",
-                   "B4035, Chipping Campde",
+                   "Mumbles Road, Swansea, SA2 8PY, United Kingdom",
                    "55 Woodfall Avenue, Barnet, Barnet, EN5 2HB, United Kingdom",
                    "35 Abbots Way, Bristol, BS9 4SN, United Kingdom",
                    "Fisherman's Path, Liverpool, L37 1YD, United Kingdom",
@@ -83,19 +84,19 @@ addresses_array = ["29 Main St Swindon SN2 2DQ",
                    "7 Henley Road, London, N18 1NS, United Kingdom",
                    "Harbolets Road, Pulborough, RH20 2LE, United Kingdom",
                    "A352, Dorchester, DT2 7SH, United Kingdom",
-                   "B3289, Truro, TR2 5JQ, United Kingdom",
+                   "59 Station Grove, Brent, Wembley, HA0 4EF, United Kingdom",
                    "PL30 5BZ, Bodmin, Cornwall, England, United Kingdom",
-                   "SY8 2AL, Ludlow, Shropshire, England, United Kingdom",
+                   "5 Elspeth Road, Brent, Wembley, HA0 2BP, United Kingdom",
                    "1 Union Street, Beeston, Nottingham, NG9 2LU, United Kingdom",
                    "2 Cornwall Avenue, Beeston, Nottingham, NG9 1NL, United Kingdom",
                    "South Croxton Road, Leicester, LE7 3RX, United Kingdom",
                    "KA18 2RU, Cumnock, East Ayrshire, Scotland, United Kingdom",
                    "TD2 6SJ, Lauder, Scottish Borders, Scotland, United Kingdom",
                    "YO7 2JX, Thirsk, North Yorkshire, England, United Kingdom",
-                   "Gatenby Lane, Northallerton, DL7 9PG, United Kingdom",
-                   "Paddock Way, Beverley, HU17 0UN, United Kingdom",
-                   "Patrington Road, Hull, HU12 0QN, United Kingdom",
-                   "LL16 5NS, Denbigh, Conwy, Wales, United Kingdom",
+                   "5 Churchill Road, Church Stretton, SY6 6DE, United Kingdom",
+                   "Harrow Road, Brent, Wembley, HA0 2HH, United Kingdom",
+                   "55 Churchill Road, Church Stretton, SY6 6AE, United Kingdom",
+                   "159 Western Street, Swansea, SA1 3HY, United Kingdom",
                    "A49, Church Stretton, SY6 7JP, United Kingdom"
                   ]
 

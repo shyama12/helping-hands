@@ -1,0 +1,54 @@
+.message-row {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  width: 70%;
+  max-width: 400px;
+  padding: 8px;
+  min-height: 80px;
+}
+
+.sender-style {
+  background-color: #D3C1D2;
+  position: relative;
+}
+
+.sender-style::after {
+  content: ' ';
+	position: absolute;
+  width: 0px;
+  height: 0px;
+  border-left: 20px solid transparent;
+  /* border-right: 20px solid transparent; */
+  border-top: 20px solid #D3C1D2;
+  right: 8px;
+}
+
+.receiver-style {
+  background-color: #BFE4CD;
+  position: relative;
+}
+
+.receiver-style::after {
+  content: ' ';
+	position: absolute;
+  width: 0px;
+  height: 0px;
+  // border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #BFE4CD;
+}
+
+
+.chatroom-card {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+
+  &:hover {
+    color: black;
+  }
+}
