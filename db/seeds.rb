@@ -138,11 +138,12 @@ titles_nh_category_array = [
 
   task = Task.new(title: titles_nh_category_array[i][0],
                   date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
-                  category_id: titles_nh_category_array[i][2],
+                  category_id: Category.all.sample.id,
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
-                  user_id: user_id_rand,
+                  user_id: User.all.sample.id,
                   need_help: titles_nh_category_array[i][1],
-                  address: addresses_array[i])
+                  address: addresses_city_array[i][0],
+                  city: addresses_city_array[i][1])
   task.save!
   puts tasks.errors.messages if task.errors.present?
   puts "Created task with id #{task.id}"

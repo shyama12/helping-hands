@@ -27,4 +27,6 @@ Rails.application.routes.draw do
       get :profile
     end
   end
+  get 'videocalls', to: 'videocalls#home'
+  get 'videocalls/show', to: 'videocalls#show'
 end
