@@ -15,17 +15,20 @@ class ChatroomChannel < ApplicationCable::Channel
   private
 
   def set_subscribed_flag_and_new_messages
-    current_user = User.find(params[:user])
-    chatroom = Chatroom.find(params[:id])
-    chatroom_user = ChatroomUser.where(chatroom: chatroom, user: current_user)
+    puts "Heyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    puts "params user id : #{params[:user]}"
+    puts current_user = User.find(params[:user])
+    puts chatroom = Chatroom.find(params[:id])
+    puts chatroom_user = ChatroomUser.where(chatroom:, user: current_user)
     chatroom_user.update!(subscribed: 1)
     chatroom_user.update!(new_messages: 0)
   end
 
   def set_subscribed_flag
-    current_user = User.find(params[:user])
-    chatroom = Chatroom.find(params[:id])
-    chatroom_user = ChatroomUser.where(chatroom: chatroom, user: current_user)
+    puts "Hiiiiiiiiiiiiiiiiiiiiiiiiii"
+    puts current_user = User.find(params[:user])
+    puts chatroom = Chatroom.find(params[:id])
+    puts chatroom_user = ChatroomUser.where(chatroom:, user: current_user)
     chatroom_user.update!(subscribed: 0)
   end
 end

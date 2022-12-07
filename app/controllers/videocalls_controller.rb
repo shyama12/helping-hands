@@ -1,7 +1,7 @@
-class VideocallsController < ApplicationController
-  def home
-  end
+# class VideocallsController < ApplicationController
+#   def home
+#   end
 
-  def show
-  end
-end
+#   def show
+#   end
+# end
