@@ -1,0 +1,18 @@
+.chatroom-card-pill {
+  position: absolute;
+  right: 5%;
+
+  span {
+    border: 2px solid $light-gray;
+  }
+}
+
+.chatroom-card {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+
+  &:hover {
+    color: black;
+  }
+}

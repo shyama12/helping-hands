@@ -1,53 +1,27 @@
-<div class="container py-2">
-  <div class="emptyResult">
-    <% if @tasks.empty? %>
+<div class="container">
+  <% if @tasks.empty? %>
+    <div class="emptyResult">
       <h1><em class="text-muted">Be the first one to create a task</em> in <%= params[:query] %> or just <%= link_to "try again", root_path %></h1>
       <%= link_to "Create a Task",  new_task_path,  class: "btn btn-primary" %>
-  </div>
-    <% else %>
-  <h1> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? </h1> <% end %>
-  <div class="row">
-    <div id="tasks" class="col-12 col-lg-6 my-4">
-      <div class="task-cards-wrapper">
-        <% @tasks.each do |task| %>
-          <%= render "task", task: task %>
-        <% end %>
-        <br>
+    </div>
+  <% else %>
+    <h1> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? </h1> <% end %>
+    <div class="row">
+      <div class="col-12 col-lg-4 my-4">
+        <div class="task-cards-wrapper">
+          <% @tasks.each do |task| %>
+            <%= render "task", task: task %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8 my-4">
+        <div id="map" style="width: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
-    <div id="map" style="width: 600px;" class="col-12 col-lg-6 my-4"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <% end %>
-    <%# <% @tasks.each do |task| %>
-        <%# <div class="card testimonial-card d-flex text-center" stlye=" weight: 4rem; height: 3rem;"> %>
-          <%# <div class="card-up" style="background-color: #9d789b; height: 1rem;">
-            </div> %>
-            <%# <div class="avatar mx-auto bg-white h-25 w-25 ">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"class="rounded-circle img-fluid" />
-            </div> %>
-        <%# <div class="card-body mb-2 ">
-          <h5 class="">Maria Smantha</h5>
-          <hr/>
-          <p class="dark-grey-text mt-2">
-            <i class="fas fa-quote-left pe-2"></i><%= link_to task.title, task_path(task.id) %>
-          <%# </p>
-        </div> %>
-      <%# </div>
-      <% end %>
-  </div>
+  <% end %>
 </div>
-<%#
-<div class="grid-container">
-    <% @tasks.each do |task|
-  <div class="card">
-    <div class="card-up">
-    </div>
-    <div class="avatar">
-    </div>
-
-
-  </div>
-</div> %>

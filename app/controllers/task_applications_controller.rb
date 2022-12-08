@@ -1,5 +1,5 @@
 class TaskApplicationsController < ApplicationController
-  before_action :set_task_application, only: [:accept, :reject]
+  before_action :set_task_application, only: [:accept, :reject, :close]
   def create
     @task_application = TaskApplication.new
     @task_application.user = current_user
@@ -24,8 +24,10 @@ class TaskApplicationsController < ApplicationController
   def accept
     @task_application.status = "accepted"
     @task_application.save!
-    @task_applications = TaskApplication.joins("JOIN tasks ON task_applications.task_id = tasks.id")
-                                        .where(tasks: { user: current_user })
+    # @task_applications = TaskApplication.joins("JOIN tasks ON task_applications.task_id = tasks.id")
+    #                                     .where(tasks: { user: current_user })
+    @task_application.task.available = false
+    @task_application.task.save!
     message = @task_application.task.need_help? ? "You have accepted help from " : "You have offered to help "
     redirect_to applications_to_me_task_applications_path, notice: "#{message} #{@task_application.user.first_name} #{@task_application.user.last_name}"
   end
@@ -33,10 +35,20 @@ class TaskApplicationsController < ApplicationController
   def reject
     @task_application.status = "rejected"
     @task_application.save!
-    @task_applications = TaskApplication.joins("JOIN tasks ON task_applications.task_id = tasks.id")
-                                        .where(tasks: { user: current_user })
+    # @task_applications = TaskApplication.joins("JOIN tasks ON task_applications.task_id = tasks.id")
+    #                                     .where(tasks: { user: current_user })
+    @task_application.task.available = true
+    @task_application.task.save!
     message = @task_application.task.need_help? ? "You have declined help from " : "You declined to offer help to "
     redirect_to applications_to_me_task_applications_path, notice: "#{message} #{@task_application.user.first_name} #{@task_application.user.last_name}"
+  end
+
+  def close
+    @task_application.status = "expired"
+    @task_application.save!
+    @task_application.task.available = false
+    @task_application.task.save!
+    redirect_to applications_to_me_task_applications_path, notice: "You have closed this task"
   end
 
   private

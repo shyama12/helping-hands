@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for [@task_application, @experience] do |f| %>
+    <h2>Leave a comment</h2>
+    <p class="m-0">How was your experience working with <strong><%= @task_application.task.user.first_name %> <%= @task_application.task.user.last_name %></strong> for their task: <strong><%= @task_application.task.title %></strong>?</p><p>Let them know. Your comment will show on their profile.</p>
+    <%= f.input :comment %>
+    <br>
+    <p>Do you wish to give them a friendship bracelet?</p>
+    <%= f.input :friendship_bracelet, as: :boolean %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

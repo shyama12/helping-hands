@@ -1,13 +1,12 @@
-<div class="container my-5">
-  <h1>Applications made to me</h1>
-  <br><br>
-  <% if @task_applications.count.zero? %>
-    <h4>You do not have any applications!</h4>
-  <% else %>
-    <h4><%= pluralize @task_applications.count, "task applications" %></h4>
-    <br><br>
-    <% @task_applications.each do |task_application| %>
-      <%= render "task_application", task_application: task_application %>
+<div class="container my-5 p-5 d-flex flex-column justify-content-center align-items-center bg-white">
+  <div class="col-12 col-md-6">
+    <% if @task_applications.size.zero? %>
+      <h1 class="pb-2">No one has applied to your tasks yet!</h1>
+    <% else %>
+      <h1 class="pb-2">Applications to your tasks(<%= @task_applications.size %>)</h1>
+      <% @task_applications.each do |task_application| %>
+        <%= render "task_application", task_application: task_application %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
