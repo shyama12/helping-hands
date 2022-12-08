@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     member do
       patch :accept
       patch :reject
+      patch :close
     end
+    resources :experiences, only: [:new, :create]
   end
 
   resources :chatrooms, only: [:index, :new, :create, :show] do
