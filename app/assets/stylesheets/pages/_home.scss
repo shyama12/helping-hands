@@ -34,6 +34,7 @@
   box-shadow: none;
   display: flex;
   align-items: center;
+  margin: 10px;
 }
 
 .card-product img {
@@ -46,7 +47,6 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  text-align: center;
 }
 
 .card-product p {
@@ -55,7 +55,6 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
-  text-align: center;
 }
 
 .card-product .card-product-infos {

@@ -1,15 +1,29 @@
 <div class="container my-5 p-5 d-flex flex-column justify-content-center align-items-center bg-white">
-  <% @chatroom_users.each do |chatroom_user| %>
-    <%= link_to chatroom_path(chatroom_user.chatroom), class: "chatroom-card" do %>
-      <div class="bg-light m-2 d-flex border shadow-sm w-100">
-        <div class="py-2 px-5 text-center">
-          <p class=""><i class="fa-sharp fa-solid fa-message"></i></p>
-        </div>
-        <div class="py-2">
-          <h3>#<%= chatroom_user.chatroom.name %></h3>
-          <p><%= chatroom_user.chatroom.messages.last.content %></p>
-        </div>
-      </div>
+  <div class="col-12 col-md-6">
+    <% if @chatroom_users.size.zero? %>
+      <h1 class="pb-2">You do not have any chatrooms!</h1>
+    <% else %>
+      <h1 class="pb-2">Your chatrooms(<%= @chatroom_users.size %>)</h1>
+      <% @chatroom_users.each do |chatroom_user| %>
+        <%= link_to chatroom_path(chatroom_user.chatroom), class: "chatroom-card" do %>
+          <div class="bg-light m-2 d-flex border shadow-sm w-100">
+            <div class="px-3 me-3 text-center d-flex align-items-center position-relative">
+              <p class="text-danger fs-1 d-block m-0"><i class="fa-sharp fa-solid fa-message"></i></p>
+                <div class="chatroom-card-pill">
+                  <% unless chatroom_user.new_messages.zero? %>
+                    <span class="badge rounded-pill text-bg-primary"><%= chatroom_user.new_messages %></span>
+                  <% end %>
+                </div>
+              <% unless chatroom_user.new_messages.zero? %>
+              <% end %>
+            </div>
+            <div class="py-2">
+              <h3 class="m-0 text-start">#<%= chatroom_user.chatroom.name %></h3>
+              <p class="m-0 text-start"><%= chatroom_user.chatroom.messages.last.content %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
