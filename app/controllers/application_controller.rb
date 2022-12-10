@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     @new_messages = 0
     @user_chatrooms.each { |user_chatroom| @new_messages += user_chatroom.new_messages }
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
