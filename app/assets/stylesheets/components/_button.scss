@@ -14,3 +14,23 @@
   color: black;
   margin-top: 16px;
 }
+
+.pill-button {
+  background-color: $our-bright-purple ;
+  width: fit-content;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: auto;
+  border-radius: 16px;
+}
+
+.pill-button-pink {
+  background-color: $our-bright-purple ;
+}
+
+.pill-button-green {
+  background-color: $our-bright-green ;
+}

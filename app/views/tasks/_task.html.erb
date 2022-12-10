@@ -1,5 +1,5 @@
 <%= link_to task_path(task.id), style: "text-decoration: none; color: black;" do %>
-  <div class="card-trip <%= task.need_help? ? 'orange-border' : 'green-border' %>">
+  <div class="card-trip <%= task.need_help? ? 'pink-border' : 'green-border' %>">
     <div class="title-avatar">
         <div>
           <h2><%= task.title %></h2>
@@ -9,9 +9,11 @@
     <p><strong>Category</strong>: <%= task.category.name %></p>
     <p><strong>Time</strong>: <%= task.date_time.strftime(' %B %e, %Y - %l:%M %p') %></p>
     <p><strong>Owner</strong>: <%= task.user.first_name %> <%= task.user.last_name %></p>
-    <br>
     <div class="task-description">
-    <p><%= task.description %></p>
+    <p><%= task.description.truncate(100)%></p>
+    </div>
+    <div class="pill-button <%= task.need_help? ? 'pill-button-pink' : 'pill-button-green' %>">
+    <p><%= task.need_help? ? 'Needs help' : 'Volunteer'%></p>
     </div>
   </div>
 <% end %>

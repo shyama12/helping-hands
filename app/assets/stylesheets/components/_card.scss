@@ -12,12 +12,12 @@
   padding: 16px;
 }
 
-.orange-border {
-  border: 4px solid orange;
+.pink-border {
+  border: 4px solid $our-bright-purple;
 }
 
 .green-border {
-  border: 4px solid green;
+  border: 4px solid $our-bright-green;
 }
 
 .card-trip p {
@@ -53,6 +53,7 @@
 }
 
 .task-description {
+  margin-top: 8px;
   height: 70%;
   overflow: hidden;
   overflow-wrap: break-word;
