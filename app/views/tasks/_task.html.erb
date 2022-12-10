@@ -1,5 +1,5 @@
 <%= link_to task_path(task.id), style: "text-decoration: none; color: black;" do %>
-  <div class="card-trip <%= task.need_help? ? 'orange-border' : 'green-border' %>">
+  <div class="card-trip <%= task.need_help? ? 'pink-border' : 'green-border' %>">
     <div class="title-avatar">
         <div>
           <h2><%= task.title %></h2>
@@ -12,6 +12,12 @@
     <br>
     <div class="task-description">
     <p><%= task.description %></p>
+    </div>
+    <br>
+    <div>
+      <a href="#">
+        <button class="pill-button">Volunteer/Needs help</button>
+      </a>
     </div>
   </div>
 <% end %>

@@ -14,3 +14,15 @@
   color: black;
   margin-top: 16px;
 }
+
+.pill-button {
+  background-color: $our-bright-purple ;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 16px;
+}
