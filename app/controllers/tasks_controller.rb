@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.is_available_for_application
+    console
     if params[:need].present? && !params[:can].present? && params[:query].present?
         @tasks = Task.where(category_id: params[:categories], city: params[:query], need_help: false)
     elsif params[:can].present? && !params[:need].present? && params[:query].present?
@@ -39,7 +40,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     if @task.save!
-      redirect_to tasks_path, notice: "Your task has been added"
+      redirect_to task_path(@task), notice: "Your task has been added"
     else
       render :new, status: :unprocessable_entity
     end
@@ -80,6 +81,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:need_help, :category_id, :title, :description, :date_time, :address)
+    params.require(:task).permit(:need_help, :category_id, :title, :description, :date_time, :address, :city)
   end
 end
