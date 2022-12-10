@@ -26,7 +26,7 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       const markerColor = marker.nH ? "#A14DA0" : "#73956F"
-      customMarker.innerHTML = `<div style='font-size: 20px; color: ${markerColor};'><i class='fa-solid fa-hand-holding-heart'></i></div>`
+      customMarker.innerHTML = `<div style='font-size: 20px; color: ${markerColor};'><i class="fa-solid fa-location-dot"></i></div>`
       customMarker.style.width = "25px"
       customMarker.style.height = "25px"
 
