@@ -1,4 +1,4 @@
-# class Videocall < ApplicationRecord
+class Videocall < ApplicationRecord
 #   require 'opentok'
 #   @opentok = OpenToK::OpenTok.new ENV['VONAGE_API_KEY'], ENV['VONAGE_API_SECRET']
 
@@ -26,4 +26,4 @@
 #   def self.create_token(user_name, session_id)
 #     @token = user_name == moderator_name ? @opentok.generate_token(session_id, {role: moderator }) : @open.generate_token(session_id)
 #   end
-# end
+end

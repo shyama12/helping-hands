@@ -1,16 +1,33 @@
-<div class="w-100 my-3 p-3 bg-light <%= task_application.task.need_help? ? 'orange-border' : 'green-border' %>">
-  <strong><%= task_application.task.title %></strong>
-  <br><br>
-  <p class="m-0"><strong>Applicant</strong>: <%= task_application.user.first_name %> <%= task_application.user.last_name %>
-  <p class="m-0"><strong>Category</strong>: <%= task_application.task.category.name %></p>
-  <p class="m-0"><strong>Time</strong>: <%= task_application.task.date_time.strftime(' %B %e, %Y - %l:%M %p') %></p>
-  <p class="m-0"><strong>Owner</strong>: <%= task_application.task.user.first_name %> <%= task_application.task.user.last_name %></p>
-  <p class="m-0"><strong>Status</strong>: <%= task_application.status %></p>
-  <br>
-  <p class="m-0"><%= task_application.task.description %></p>
-  <br>
-  <% if task_application.task.user == current_user && task_application.status == "open" %>
-    <%= link_to task_application.task.need_help? ? 'Accept help' : 'Offer help', accept_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn-black-transparent-long-round" %>
-    <%= link_to 'Reject', reject_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn-black-transparent-long-round" %>
-  <% end %>
+<div class="w-100 my-3 p-3 bg-light d-lg-flex">
+  <div class="d-flex align-items-center justify-content-center text-center px-5">
+    <div class="mx-2">
+      <%= link_to profile_user_path(task_application.task.user), style: "text-decoration: none;" do %>
+        <strong><p class="m-0 p-0">Owner</p></strong>
+        <%= cl_image_tag task_application.task.user.photo.key, class: "avatar-bordered" %>
+      <% end %>
+    </div>
+    <div class="mx-2">
+      <%= link_to profile_user_path(task_application.user), style: "text-decoration: none;" do %>
+        <strong><p class="m-0 p-0">Applicant</p></strong>
+        <%= cl_image_tag task_application.user.photo.key, class: "avatar-bordered" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="py-2">
+    <strong><%= task_application.task.title %></strong>
+    <p class="m-0"><%= task_application.task.address %></p>
+    <br>
+    <p class="m-0"><strong>Category</strong>: <%= task_application.task.category.name %></p>
+    <p class="m-0"><strong>Time</strong>: <%= task_application.task.date_time.strftime(' %B %e, %Y - %l:%M %p') %></p>
+    <p class="m-0"><strong>Status</strong>: <%= task_application.status.capitalize %> <% if task_application.status == "expired" && !(current_user == task_application.task.user)%><%= link_to "Leave a review", new_task_application_experience_path(task_application) %><% end %></p>
+    <p class="m-0"><%= task_application.task.description %></p>
+    <br>
+    <% if task_application.task.user == current_user && task_application.status == "open" %>
+      <%= link_to task_application.task.need_help? ? 'Accept help' : 'Offer help', accept_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn btn-primary" %>
+      <%= link_to 'Reject', reject_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn btn-primary" %>
+    <% end %>
+    <% if task_application.task.user == current_user && task_application.status == "accepted" %>
+      <%= link_to "Close task", close_task_application_path(task_application), data: { turbo_method: "patch" }, class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>

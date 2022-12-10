@@ -1,0 +1,12 @@
+<div class="container my-5 p-5 d-flex flex-column justify-content-center align-items-center bg-white">
+  <div class="col-12 col-md-6">
+    <% if @chatroom_users.size.zero? %>
+      <h1 class="pb-2">You do not have any chatrooms!</h1>
+    <% else %>
+      <h1 class="pb-2">Your chatrooms(<%= @chatroom_users.size %>)</h1>
+      <% @chatroom_users.each do |chatroom_user| %>
+        <%= render "chatroom_user", chatroom_user: chatroom_user %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
