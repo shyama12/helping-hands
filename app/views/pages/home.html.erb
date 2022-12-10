@@ -1,14 +1,5 @@
 
 <div class="banner">
-  <div class="banner-item7 item"></div>
-  <div class="banner-item1 item"></div>
-  <div class="banner-item2 item"></div>
-  <div class="banner-item3 item"></div>
-  <div class="banner-item4 item"></div>
-  <div class="banner-item5 item"></div>
-  <div class="banner-item6 item"></div>
-  <div class="banner-item8 item"></div>
-
 
   <%= form_tag tasks_path, method: :get, class: "form" do %>
     <div class="row">
@@ -16,11 +7,11 @@
     </div>
     <div class="row">
       <div class="d-flex justify-content-around">
-        <div class="d-flex">
-          <%= check_box_tag 'need' %>&nbsp;&nbsp;
+        <div class="d-flex radio-btn">
+          <%= check_box_tag 'need', class: "radio-btn" %>&nbsp;&nbsp;
           <%= label_tag 'need', 'I need help' %>
         </div>
-        <div class="d-flex">
+        <div class="d-flex radio-btn">
           <%= check_box_tag 'can' %>&nbsp;&nbsp;
           <%= label_tag 'can', 'I can help' %>
         </div>
@@ -28,22 +19,25 @@
     </div>
     <br>
     <div class="row">
-      <%= label_tag 'categories', 'Categories' %>
+      <%= label_tag 'categories', 'Categories', class: "subtitle" %>
       <br><br>
-      <%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name"), include_blank: "All", class: "form-select" %>
+      <%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Choose category", class: "form-select" %>
+      <br><br>
+      <%= label_tag 'location', 'Location', class: "subtitle" %>
       <br><br>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Type your city"
+        placeholder: "Enter your city"
        %>
     </div>
     <br><br>
     <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-      Search
+      <strong>Search</strong>
     <% end %>
   <% end %>
 </div>
+
 
 <div class=" row card-group">
 
