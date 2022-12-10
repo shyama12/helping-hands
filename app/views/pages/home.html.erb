@@ -39,39 +39,34 @@
   <% end %>
 </div>
 
-<br>
-<div class="container">
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="card-product">
-        <%= image_tag "one.jpg" %>
-        <div class="card-product-infos">
-          <h2>Choose if you want help or to volunteer</h2>
-          <p>Enter your location and browse people in your area who <strong>require help</strong> or are available <strong>to help you.</strong></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card-product">
-        <%= image_tag "two.jpg" %>
-        <div class="card-product-infos">
-          <h2>Search for helping hands in your area</h2>
-          <p>Browse people based on tasks and availability.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card-product">
-        <%= image_tag "three.jpg" %>
-        <div class="card-product-infos">
-          <h2>Connect with others and get the task done</h2>
-          <p>Login and create a profile to live chat with another person to sort out the finer details.</p>
-        </div>
-      </div>
+<div class=" row card-group">
+
+  <div class="card" style="width: 18rem; height: 15rem">
+     <%= image_tag "one.jpg" %>
+    <div class="card-body">
+      <h4 class="card-title">Choose if you want help or to volunteer</h4>
+      <p class="card-text">Enter your location and browse people in your area who <strong>require help</strong> or are available <strong>to help you.</strong></p>
     </div>
   </div>
+
+  <div class="card" style="width: 18rem; height: 15rem">
+    <%= image_tag "two.jpg" %>
+    <div class="card-body">
+      <h4 class="card-title">Search for helping hands in your area</h4>
+      <br>
+      <p class="card-text">Browse people based on tasks and availability.</strong></p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem; height: 15rem">
+    <%= image_tag "three.jpg" %>
+    <div class="card-body">
+      <h4 class="card-title">Connect with others and get the task done</h4>
+      <p class="card-text">Login and create a profile to live chat with another person to sort out the finer details.</p>
+    </div>
+  </div>
+</div>
+
   <br>
   <br>
   <br>
