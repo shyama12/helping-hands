@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :task_applications
   has_many :task_applications_as_owner, through: :tasks, source: :task_applications
 
+  scope :all_except, ->(user) { where.not(id: user) }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

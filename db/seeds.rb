@@ -149,4 +149,52 @@ end
 
 puts "Created #{Task.count} tasks"
 
+4.times do |i|
+  task = Task.find((2 * i) + Task.first.id)
+  applicant = User.all_except(task.user).sample
+  task_application = TaskApplication.new(
+    user: applicant,
+    task:,
+    status: "expired"
+  )
+
+  task_application.save!
+  puts "Created task application with id #{task_application.id}"
+
+  task.available = false
+  task.save!
+
+  experience = Experience.new(
+    task_application:,
+    comment: "Had a great experience working with on this task. #{task_application.task.user.first_name} was fun to work with and we are good friends now!",
+    friendship_bracelet: true
+  )
+
+  experience.save!
+  puts "Created experience with id #{experience.id}"
+
+  task2 = Task.find(((2 * i) + 1) + Task.first.id)
+  applicant2 = User.all_except(task2.user).sample
+  task_application2 = TaskApplication.new(
+    user: applicant2,
+    task: task2,
+    status: "expired"
+  )
+
+  task_application2.save!
+  puts "Created task application with id #{task_application2.id}"
+
+  task2.available = false
+  task2.save!
+
+  experience2 = Experience.new(
+    task_application: task_application2,
+    comment: "It was awesome getting to know #{task_application2.task.user.first_name}. Such a kind and friendly person!",
+    friendship_bracelet: true
+  )
+
+  experience2.save!
+  puts "Created experience with id #{experience2.id}"
+end
+
 puts "End seeds"
