@@ -17,7 +17,20 @@
       </div>
       <div>
         <div class="bg-white p-5 ps-5 m-5">
-          <strong class="fs-5 text-primary">Here's what others have to say about their experiences with <%= @user.first_name %> <%= @user.last_name %></strong>
+          <% unless @friendship_bracelets_count.zero? %>
+            <div>
+              <div class="d-flex flex-column">
+                <strong class="fs-5 text-primary">Friendship Bracelets collected by <%= @user.first_name %></strong>
+                <div class="d-flex align-items-center justify-content-center p-5">
+                  <div class="friendship-bracelet-count">
+                    <%= image_tag "friendship-bracelet.svg", class: "fb-large-square" %>
+                    <div class="fb-count"><span class="badge rounded-pill text-bg-primary"><%= @friendship_bracelets_count %></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <strong class="fs-5 text-primary">Here's what others have to say about their experiences with <%= @user.first_name %></strong>
           <% @experiences.each do |experience| %>
             <div class="border-bottom pt-5 ps-3">
               <div>
@@ -25,7 +38,10 @@
                 <br>
               </div>
               <div class="d-flex justify-content-end">
-                <div class="d-flex">
+                <div class="d-flex align-items-center">
+                  <% if experience.friendship_bracelet %>
+                    <%= image_tag "friendship-bracelet.svg", class: "fb-small-square" %>
+                  <% end %>
                   <%= cl_image_tag experience.task_application.user.photo.key, class: "avatar-bordered" %>
                   <div class="ms-2">
                     <strong class="m-0"><%= experience.task_application.user.first_name %> <%= experience.task_application.user.last_name %></strong>
