@@ -16,7 +16,7 @@
         </div>
       </div>
       <div>
-        <div class="bg-white p-5 ps-5 m-5">
+        <div class="bg-white p-5 ps-5 my-lg-5">
           <% unless @friendship_bracelets_count.zero? %>
             <div>
               <div class="d-flex flex-column">
@@ -57,7 +57,7 @@
     </div>
     <div class="col-lg-6 p-2">
       <div class="text-center">
-        <div class="py-5"><strong class="fs-4 text-primary text-center">Listings by this user</strong></div>
+        <div class="py-5"><strong class="fs-4 text-primary text-center">All listings by <%= @user.first_name %></strong></div>
         <div class="task-cards-wrapper">
           <% @tasks.each do |task| %>
             <%= render "tasks/task", task: task %>

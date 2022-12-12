@@ -1,7 +1,7 @@
 
 <div class="banner">
 
-  <%= form_tag tasks_path, method: :get, class: "form" do %>
+  <%= form_tag tasks_path, method: :get, class: "form-home" do %>
     <div class="row">
       <h3>Find tasks that suit you</h3>
     </div>
@@ -21,18 +21,18 @@
     <div class="row">
       <%= label_tag 'categories', 'Categories', class: "subtitle" %>
       <br><br>
-      <%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Choose category", class: "form-select" %>
+      <%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Choose category", class: "form-home-select" %>
       <br><br>
       <%= label_tag 'location', 'Location', class: "subtitle" %>
       <br><br>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-home-control",
         placeholder: "Enter your city"
        %>
     </div>
     <br><br>
-    <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+    <%= button_tag(type: "submit", class: "btn btn-call-to-action") do %>
       <strong>Search</strong>
     <% end %>
   <% end %>
@@ -41,7 +41,7 @@
 
 <div class=" row card-group">
 
-  <div class="card" style="width: 18rem; height: 15rem">
+  <div class="card" style="width: auto; height: 15rem; margin: 0">
      <%= image_tag "one.jpg" %>
     <div class="card-body">
       <h4 class="card-title">Choose if you want help or to volunteer</h4>
@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="card" style="width: 18rem; height: 15rem">
+  <div class="card" style="width: auto; height: 15rem; margin: 0">
     <%= image_tag "two.jpg" %>
     <div class="card-body">
       <h4 class="card-title">Search for helping hands in your area</h4>
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div class="card" style="width: 18rem; height: 15rem">
+  <div class="card" style="width: auto; height: 15rem; margin: 0">
     <%= image_tag "three.jpg" %>
     <div class="card-body">
       <h4 class="card-title">Connect with others and get the task done</h4>

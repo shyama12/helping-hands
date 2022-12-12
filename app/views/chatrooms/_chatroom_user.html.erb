@@ -1,10 +1,10 @@
 <%= link_to chatroom_path(chatroom_user.chatroom), class: "chatroom-card" do %>
   <div class="bg-light m-2 d-flex border shadow-sm w-100">
     <div class="px-3 me-3 text-center d-flex align-items-center position-relative">
-      <p class="text-danger fs-1 d-block m-0"><i class="fa-sharp fa-solid fa-message"></i></p>
+      <p class="text-info fs-1 d-block m-0" style="--bs-text-opacity: .5;"><i class="fa-sharp fa-solid fa-message"></i></p>
         <div class="chatroom-card-pill">
           <% unless chatroom_user.new_messages.zero? %>
-            <span class="badge rounded-pill text-bg-primary"><%= chatroom_user.new_messages %></span>
+            <span class="badge rounded-pill text-bg-info"><%= chatroom_user.new_messages %></span>
           <% end %>
         </div>
       <% unless chatroom_user.new_messages.zero? %>
@@ -12,7 +12,9 @@
     </div>
     <div class="py-2">
       <h3 class="m-0 text-start">#<%= chatroom_user.chatroom.name %></h3>
-      <p class="m-0 text-start"><%= chatroom_user.chatroom.messages.last.content %></p>
+      <% unless chatroom_user.chatroom.messages.last.nil? %>
+        <p class="m-0 text-start"><%= chatroom_user.chatroom.messages.last.content %></p>
+      <% end %>
     </div>
   </div>
 <% end %>

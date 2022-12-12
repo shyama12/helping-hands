@@ -1,10 +1,10 @@
 <div class="container py-2">
-    <div class="emptyResult">
-      <% if @tasks.empty? %>
+    <% if @tasks.empty? %>
+      <div class="emptyResult">
       <h1><em class="text-muted">Be the first one to create a task</em> in <%= params[:query] %> or just <%= link_to "try again", root_path %></h1>
       <%= link_to "Create a Task",  new_task_path,  class: "btn btn-primary" %>
     </div>
-  <% else %>
+    <% else %>
     <h1> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? </h1> <% end %>
     <div class="row">
       <div class="col-12 col-lg-4 my-4">
@@ -23,5 +23,5 @@
         </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
 </div>
