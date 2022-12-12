@@ -9,9 +9,10 @@
     body {
       height: 100vh;
       background-image: url(./images/404.jpg);
-      background-position: center;
       background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
+      position: relative;
     }
 
     .content {
@@ -19,7 +20,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding-top: 8rem;
     }
 
     .content h1 {
@@ -64,24 +64,32 @@
       width: 100%;
       height: auto;
     }
+
+    @media (max-width: 991px) {
+      body {
+        background-image: none;
+      }
+
+      .content {
+        padding-top: 8rem;
+      }
+    }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/500.html -->
-  <div class="d-flex flex-column align-items-center justify-content-center h-100">
-    <div class="h-50">
+  <div class="d-flex flex-column align-items-center justify-content-start h-100">
+    <div class="h-50 mt-md-5">
       <div class="content">
         <h1>500</h1>
         <h6>Oops! Something went wrong.</h6>
-        <h6>Try again in some time or go back to our home page!</h6>
-        <br><br>
+        <h6 class="mb-2">Try again later!</h6>
         <a href="http://www.helpinghandsngo.me/">Home</a>
       </div>
     </div>
-    <div class="h-50 w-100">
-      <div class="plug-img">
-      </div>
+    <div class="h-50 w-100 d-lg-none">
+      <img src="./images/404.jpg" style="height: auto; width: 100vw;">
     </div>
   </div>
 </body>
