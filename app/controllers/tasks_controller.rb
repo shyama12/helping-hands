@@ -6,21 +6,21 @@ class TasksController < ApplicationController
     @tasks = Task.is_available_for_application
     console
     if params[:need].present? && !params[:can].present? && params[:query].present?
-        @tasks = Task.where(category_id: params[:categories], city: params[:query], need_help: false)
+        @tasks = Task.is_available_for_application.where(category_id: params[:categories], city: params[:query], need_help: false)
     elsif params[:can].present? && !params[:need].present? && params[:query].present?
-        @tasks = Task.where(category_id: params[:categories], city: params[:query], need_help: true)
+        @tasks = Task.is_available_for_application.where(category_id: params[:categories], city: params[:query], need_help: true)
     elsif params[:need].present? && !params[:categories].present? && !params[:query].present?
-        @tasks = Task.where(need_help: false)
+        @tasks = Task.is_available_for_application.where(need_help: false)
     elsif params[:can].present? && !params[:categories].present? && !params[:query].present?
-        @tasks = Task.where(need_help: true)
+        @tasks = Task.is_available_for_application.where(need_help: true)
     elsif params[:query].present? && !params[:can].present? && !params[:need].present? && !params[:categories].present?
-        @tasks = Task.where(city: params[:query])
+        @tasks = Task.is_available_for_application.where(city: params[:query])
     elsif params[:need].present? && params[:query].empty? && params[:can].empty?
-        @tasks = Task.where(category_id: params[:categories], need_help: false)
+        @tasks = Task.is_available_for_application.where(category_id: params[:categories], need_help: false)
     elsif params[:can].present? && !params[:query].present? && !params[:need].present?
-      @tasks = Task.where(need_help: true, category_id: params[:categories])
+      @tasks = Task.is_available_for_application.where(need_help: true, category_id: params[:categories])
     else
-        @tasks = Task.all
+        @tasks = Task.is_available_for_application
     end
     @markers = @tasks.geocoded.map do |task|
       {
@@ -70,7 +70,7 @@ class TasksController < ApplicationController
   end
 
   def my_tasks
-    @tasks = Task.where(user: current_user)
+    @tasks = Task.is_available_for_application.where(user: current_user)
     render :my_tasks
   end
 

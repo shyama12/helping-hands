@@ -60,8 +60,10 @@
       </div>
     </div>
     <div class="col-lg-6 p-2">
-      <div class="text-center">
-        <div class="py-5"><strong class="fs-4 text-primary text-center">All listings by <%= @user.first_name %></strong></div>
+      <div class="">
+        <div class="text-center">
+          <div class="py-5"><strong class="fs-4 text-primary text-center">All listings by <%= @user.first_name %></strong></div>
+        </div>
         <div class="task-cards-wrapper">
           <% @tasks.each do |task| %>
             <%= render "tasks/task", task: task %>

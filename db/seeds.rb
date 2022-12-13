@@ -135,7 +135,7 @@ titles_nh_category_array = [
 ]
 30.times do |i|
   task = Task.new(title: titles_nh_category_array[i][0],
-                  date_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 20, format: :long),
+                  date_time: Faker::Time.between(from: DateTime.now + 10, to: DateTime.now + 30, format: :long),
                   category_id: Category.all.sample.id,
                   description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
                   user_id: User.all.sample.id,
@@ -196,5 +196,11 @@ puts "Created #{Task.count} tasks"
   experience2.save!
   puts "Created experience with id #{experience2.id}"
 end
+
+last_task = Task.last
+last_task.date_time = DateTime.now - 10
+puts "lllllllllll #{last_task.date_time}"
+last_task.save!
+puts last_task.errors.messages
 
 puts "End seeds"
