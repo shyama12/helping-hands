@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   has_many :task_applications
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  # validate :date_time_is_valid_datetime
+  validate :date_time_is_valid_datetime
   validates :need_help, inclusion: { in: [true, false] }
   validates :category, presence: true
   validates :title, presence: true, length: { minimum: 6, maximum: 70 }

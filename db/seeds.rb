@@ -197,10 +197,4 @@ puts "Created #{Task.count} tasks"
   puts "Created experience with id #{experience2.id}"
 end
 
-last_task = Task.last
-last_task.date_time = DateTime.now - 10
-puts "lllllllllll #{last_task.date_time}"
-last_task.save!
-puts last_task.errors.messages
-
 puts "End seeds"
