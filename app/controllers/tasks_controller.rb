@@ -4,7 +4,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.is_available_for_application
-    console
     if params[:need].present? && !params[:can].present? && params[:query].present?
         @tasks = Task.where(category_id: params[:categories], city: params[:query], need_help: false)
     elsif params[:can].present? && !params[:need].present? && params[:query].present?

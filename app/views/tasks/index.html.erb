@@ -1,27 +1,22 @@
-<div class="container py-2">
-    <div class="emptyResult">
-      <% if @tasks.empty? %>
+<div class="container">
+    <%# <div class="emptyResult"> %>
+  <% if @tasks.empty? %>
       <h1><em class="text-muted">Be the first one to create a task</em> in <%= params[:query] %> or just <%= link_to "try again", root_path %></h1>
       <%= link_to "Create a Task",  new_task_path,  class: "btn btn-primary" %>
-    </div>
+    <%# </div> %>
   <% else %>
     <h1> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? </h1> <% end %>
-    <div class="row">
-      <div class="col-12 col-lg-4 my-4">
-        <div class="task-cards-wrapper">
+     <div class="wrapperContainer">
+        <div class="cards">
           <% @tasks.each do |task| %>
             <%= render "task", task: task %>
           <% end %>
-          <br>
         </div>
-      </div>
-      <div class="col-12 col-lg-8 my-4">
         <div id="map" style="width: 100%;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      </div>
     </div>
   <% end %>
 </div>
