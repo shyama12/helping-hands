@@ -1,0 +1,5 @@
+meta_product_name: "Helping Hands"
+meta_title: "Helping Hands - Build a strong community"
+meta_description: "With Helping Hands you can offer and receive help within your community."
+meta_image: "old_young.png" # should exist in `app/assets/images/`
+twitter_account: "@helpingh_ssva"   # required for Twitter Cards

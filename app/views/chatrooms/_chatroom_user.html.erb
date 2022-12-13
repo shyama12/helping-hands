@@ -1,18 +1,25 @@
 <%= link_to chatroom_path(chatroom_user.chatroom), class: "chatroom-card" do %>
   <div class="bg-light m-2 d-flex border shadow-sm w-100">
     <div class="px-3 me-3 text-center d-flex align-items-center position-relative">
-      <p class="text-danger fs-1 d-block m-0"><i class="fa-sharp fa-solid fa-message"></i></p>
-        <div class="chatroom-card-pill">
-          <% unless chatroom_user.new_messages.zero? %>
-            <span class="badge rounded-pill text-bg-primary"><%= chatroom_user.new_messages %></span>
-          <% end %>
-        </div>
-      <% unless chatroom_user.new_messages.zero? %>
-      <% end %>
+      <p class="text-info fs-1 d-block m-0" style="--bs-text-opacity: .5;"><i class="fa-sharp fa-solid fa-message"></i>
+      </p>
+      <div class="chatroom-card-pill">
+        <% unless chatroom_user.new_messages.zero? %>
+          <span class="badge rounded-pill text-bg-info"><%= chatroom_user.new_messages %></span>
+        <% end %>
+      </div>
     </div>
     <div class="py-2">
       <h3 class="m-0 text-start">#<%= chatroom_user.chatroom.name %></h3>
-      <p class="m-0 text-start"><%= chatroom_user.chatroom.messages.last.content %></p>
+      <% unless chatroom_user.chatroom.messages.last.nil? %>
+        <p class="m-0 text-start"><strong><%= chatroom_user.chatroom.messages.last.user.first_name %> : </strong><%= chatroom_user.chatroom.messages.last.content %></p>
+      <% end %>
+    </div>
+    <div class="d-flex align-items-center ms-auto me-3">
+      <% users = ChatroomUser.where(chatroom: chatroom_user.chatroom).map(&:user) %>
+      <% users.each do |user| %>
+        <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+      <% end %>
     </div>
   </div>
 <% end %>

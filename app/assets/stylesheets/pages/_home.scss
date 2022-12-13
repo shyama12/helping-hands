@@ -1,186 +1,146 @@
 
 // Specific CSS for your home-page
 
-.how-to {
-  margin-left: calc(-100vw / 2 + 765px / 2);
-    margin-right: calc(-100vw / 2 + 765px / 2);
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-    box-sizing: border-box;
-    background-color: white;
-}
-.wrapper {
-  display: grid;
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  margin-top: 20px;
-}
-.card-one {
-  grid-column: 1;
-  grid-row: 1;
-}
-.card-two {
-  grid-column: 2;
-  grid-row: 1;
-}
-.card-three {
-  grid-column: 3;
-  grid-row: 1;
+.banner {
+  background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1670685982/banner_fjrsgl.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 75vh;
+  position: relative;
 }
 
-.card-product {
+  .form-home {
+    position: absolute;
+    background-color: rgba($color: #33658A, $alpha: 0.5);
+    color: white;
+    text-align: center;
+    margin-left: 35%;
+    margin-right:35%;
+    margin-top: 8%;
+    width: 25%;
+    padding: 20px;
+    border: 1px solid white;
+    display: inline-block;
+  }
+
+  @media (max-width: 1000px) {
+    .form-home {
+      flex-direction: column;
+      align-items: stretch;
+      margin-top: 2rem;
+      margin-left: 2px;
+      margin-right: 2px;
+      width: 99%;
+    }
+  }
+
+  .form-home h3 {
+      text-align: center;
+      color: white;
+  }
+
+  .radio-btn {
+    transition: transform .2s;
+  }
+
+  .radio-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .form-home .row {
+    padding: 10px;
+  }
+
+  .form-check {
+  padding-bottom: 10px;
+  }
+
+
+.form-home-select {
+  margin-bottom: 20px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.form-home-control {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.btn-call-to-action {
+  background-color: white;
+  color: #33658A;
+  border: none;
+  transition: transform .2s;
+  position: relative;
   overflow: hidden;
-  height: 120px;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  margin: 10px;
 }
 
-.card-product img {
+.btn-call-to-action:before {
+  content: '';
+  position: absolute;
+  width: 100px;
   height: 100%;
-  width: 120px;
-  object-fit: cover;
+  background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255, 0) 30%,
+      rgba(255,255,255, .8),
+      rgba(255,255,255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  animation: shine 3s infinite linear;
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+@keyframes shine {
+0% {left: -100px}
+20% {left: 100%}
+100% {left: 100%}
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+.btn-call-to-action:hover {
+  background-color: white;
+  color: #33658A;
+  transform: scale(1.1);
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
+.card-group {
+  padding: 0;
+  border: 2px solid #33658A;
+}
+.card {
+  flex-direction: row;
+  align-items: center;
+  height: 12rem;
+  border: none;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.card img {
+  width: 30%;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
 .home-cards-title {
   text-align: center;
-  color: #33658a;
+  padding-bottom: 3rem;
+  color: #33658A;
 }
 
-
-
-.banner {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    width: 100%;
-    height: 75vh;
-    grid-gap: 5px, brightness(70%);
-    position: relative;
-  }
-
-  .banner-item1 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669315744/helping-hands/senior-father-hugging-adult-hipster-son-have-a-happy-feeling-together-elderly-caucasian-person-man-or-grandfather-smiling-with-love-in-concept-of-family-at-home-nature-outdoor-garden-banner-space-free-photo_y9suma.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 1/4;
-    grid-row: 1/2;
-    filter: brightness(70%);
-  }
-
-  .banner-item2 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669314319/helping-hands/cooking2_lqatfi.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 1/2;
-    grid-row: 2/5;
-    filter: brightness(70%);
-  }
-
-  .banner-item3 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669315479/helping-hands/cropped-community-group_agudfp.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 1/5;
-    grid-row: 5/5;
-    filter: brightness(70%);
-  }
-
-  .banner-item4 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669314315/helping-hands/cooking_d2zbsh.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 2/4;
-    grid-row: 2/5;
-    filter: brightness(70%);
-  }
-
-  .banner-item5 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669315805/helping-hands/old-young_kbi8vx.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 4/6;
-    grid-row: 1/3;
-    filter: brightness(70%);
-  }
-
-  .banner-item6 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669314332/helping-hands/dog___people_wjentu.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 4/5;
-    grid-row: 3/5;
-    filter: brightness(70%);
-  }
-
-  .banner-item7 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669314370/helping-hands/old___young_g9j2fn.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 5/6;
-    grid-row: 3/6;
-    filter: brightness(70%);
-  }
-
-  .banner-item8 {
-    background-image: url("https://res.cloudinary.com/dmm02pvmw/image/upload/v1669314385/helping-hands/old_young_reapq3.jpg");
-    background-size: cover;
-    background-position: center;
-    grid-column: 6/8;
-    grid-row: 1/6;
-    filter: brightness(70%);
-  }
-
-  .form {
-    position: absolute;
-    background-color: white;
-    opacity: 85%;
-    text-align: center;
-    margin-left: 35%;
-    margin-right:35%;
-    margin-top: 10%;
-    width: 30%;
-    padding: 20px;
-  }
-
-  h3 {
-      text-align: center;
-      color: #A14DA0;
-  }
-
-  .row {
-    padding: 10px;
-  }
-
-.form-check {
-  padding-bottom: 10px;
+.carousel-control-next-icon {
+  background-color: #33658A;
+  border: 1px solid #33658A;
 }
 
-
-.form-select {
-  margin-bottom: 20px;
+.carousel-control-prev-icon {
+  background-color: #33658A;
+  border: 1px solid #33658A;
+  margin-left: 5px;
 }
 
-.btn-primary {
-  background-color: #A14DA0;
-  border: none;
+.carousel-control-prev {
+  margin-left: 10px;
 }

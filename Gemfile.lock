@@ -7,7 +7,6 @@ GIT
       activemodel (>= 5.2)
 
 GEM
-  remote: https://rubygems.org/
   specs:
     actioncable (7.0.4)
       actionpack (= 7.0.4)
