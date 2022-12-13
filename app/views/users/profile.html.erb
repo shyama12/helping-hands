@@ -16,32 +16,54 @@
         </div>
       </div>
       <div>
-        <div class="bg-white p-5 ps-5 m-5">
-          <strong class="fs-5 text-primary">Here's what others have to say about their experiences with <%= @user.first_name %> <%= @user.last_name %></strong>
-          <% @experiences.each do |experience| %>
-            <div class="border-bottom pt-5 ps-3">
-              <div>
-                <p>"<%= experience.comment %>"</p>
-                <br>
-              </div>
-              <div class="d-flex justify-content-end">
-                <div class="d-flex">
-                  <%= cl_image_tag experience.task_application.user.photo.key, class: "avatar-bordered" %>
-                  <div class="ms-2">
-                    <strong class="m-0"><%= experience.task_application.user.first_name %> <%= experience.task_application.user.last_name %></strong>
-                    <p class="m-0"><%= time_ago_in_words(experience.updated_at) %> ago</p>
+        <div class="bg-white p-5 ps-5 my-lg-5">
+          <% unless @friendship_bracelets_count.zero? %>
+            <div>
+              <div class="d-flex flex-column">
+                <strong class="fs-5 text-primary">Friendship Bracelets collected by <%= @user.first_name %></strong>
+                <div class="d-flex align-items-center justify-content-center p-5">
+                  <div class="friendship-bracelet-count">
+                    <%= image_tag "friendship-bracelet.svg", class: "fb-large-square" %>
+                    <div class="fb-count"><span class="badge rounded-pill text-bg-primary"><%= @friendship_bracelets_count %></span></div>
                   </div>
                 </div>
               </div>
-              <br>
             </div>
+          <% end %>
+          <% if @experiences.count.zero? %>
+            <strong class="fs-5 text-primary"><%= @user.first_name %> doesn't have any comments from other users yet!</strong>
+          <% else %>
+            <strong class="fs-5 text-primary">Here's what others have to say about their experiences with <%= @user.first_name %></strong>
+            <% @experiences.each do |experience| %>
+              <div class="border-bottom pt-5 ps-3">
+                <div>
+                  <p>"<%= experience.comment %>"</p>
+                  <br>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <div class="d-flex align-items-center">
+                    <% if experience.friendship_bracelet %>
+                      <%= image_tag "friendship-bracelet.svg", class: "fb-small-square" %>
+                    <% end %>
+                    <%= cl_image_tag experience.task_application.user.photo.key, class: "avatar-bordered" %>
+                    <div class="ms-2">
+                      <strong class="m-0"><%= experience.task_application.user.first_name %> <%= experience.task_application.user.last_name %></strong>
+                      <p class="m-0"><%= time_ago_in_words(experience.updated_at) %> ago</p>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
     </div>
     <div class="col-lg-6 p-2">
-      <div class="text-center">
-        <div class="py-5"><strong class="fs-4 text-primary text-center">Listings by this user</strong></div>
+      <div class="">
+        <div class="text-center">
+          <div class="py-5"><strong class="fs-4 text-primary text-center">All listings by <%= @user.first_name %></strong></div>
+        </div>
         <div class="task-cards-wrapper">
           <% @tasks.each do |task| %>
             <%= render "tasks/task", task: task %>

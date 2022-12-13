@@ -10,7 +10,7 @@ class Task < ApplicationRecord
   validates :title, presence: true, length: { minimum: 6, maximum: 70 }
   validates :description, length: { maximum: 1000 }
   # validates :address, presence: true
-  scope :is_available_for_application, -> { where(available: true) }
+  scope :is_available_for_application, -> { where('date_time > ?', DateTime.now + 1).where(available: true) }
   def date_time_is_valid_datetime
     errors.add(:date_time, 'should be 24 hours or later from now') unless date_time.to_date >= Date.tomorrow
   end

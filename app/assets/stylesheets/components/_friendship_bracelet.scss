@@ -1,0 +1,23 @@
+.friendship-bracelet-count {
+  position: relative;
+}
+
+.fb-large-square {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.fb-small-square {
+  width: auto;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.fb-count {
+  position: absolute;
+  bottom: 0;
+  right: 65px;
+}
