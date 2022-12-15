@@ -2,7 +2,7 @@
   <%= "<h1>My Listings</h1>".html_safe if request.path == my_tasks_tasks_path %>
   <br><br>
   <h4><%= pluralize @tasks.count, "task" %></h4>
-  <div class="task-cards-wrapper">
+  <div class="task-cards-wrapper cards">
     <% @tasks.each do |task| %>
       <%= render "task", task: task %>
     <% end %>

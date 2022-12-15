@@ -64,7 +64,7 @@
         <div class="text-center">
           <div class="py-5"><strong class="fs-4 text-primary text-center">All listings by <%= @user.first_name %></strong></div>
         </div>
-        <div class="task-cards-wrapper">
+        <div class="task-cards-wrapper cards">
           <% @tasks.each do |task| %>
             <%= render "tasks/task", task: task %>
           <% end %>
