@@ -6,7 +6,7 @@
       <%= link_to "Create a Task",  new_task_path,  class: "btn btn-primary" %>
     <%# </div> %>
   <% else %>
-    <h1> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? </h1> <% end %>
+    <h1 class="py-5"> Where can you get help <% if params[:query].present? %> in <%= params[:query] %>? <% end %> </h1>
      <div class="wrapperContainer">
         <div class="cards">
           <% @tasks.each do |task| %>
