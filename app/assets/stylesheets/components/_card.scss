@@ -73,7 +73,7 @@
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     width: 16rem;
-    height: 200px;
+    height: auto;
     margin: 30px;
     display: flex;
     flex-direction: column;
@@ -88,7 +88,7 @@
     justify-content: space-between;
     align-items: center;
     height: 60%;
-    padding: 3px 0;
+    padding: 10px 0;
     overflow: hidden;
     text-overflow: ellipsis;
   }
